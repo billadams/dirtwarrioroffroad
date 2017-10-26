@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateRaceResultsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -17,8 +18,9 @@ class CreateRaceResultsTable extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->date('date');
-            $table->integer('user_id')
-                  ->references('id')->on('users');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id', 'fk_race_results_user_id')
+                ->references('id')->on('users');
             $table->timestamps();
         });
     }

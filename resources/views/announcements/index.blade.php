@@ -1,23 +1,14 @@
-<!DOCTYPE html>
+@extends('layout')
 
-<html>
+@section('content')
 
-<head>
-
-    <title>Test</title>
-
-</head>
-
-<body>
-
-<h1>Text</h1>
+<h1>Announcements</h1>
 
 <ul>
     @foreach ($announcements as $announcement)
-        <li><a href="{{ $announcement->id }}">{{ $announcement->body }}</a></li>
+        <li><a href="{{ $announcement->id }}">{{ $announcement->title }}</a></li>
     @endforeach
 
 </ul>
-</body>
 
-</html>
+@endsection

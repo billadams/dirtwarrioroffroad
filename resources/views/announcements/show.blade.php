@@ -1,17 +1,8 @@
-<!DOCTYPE html>
+@extends('layout')
 
-<html>
+@section('content')
 
-<head>
+<h2>{{ $announcement->title }}</h2>
+<p>{{ $announcement->body }} - Date: {{ $announcement->date }}</p>
 
-    <title>Test</title>
-
-</head>
-
-<body>
-
-<h1>Doh</h1>
-        <p>{{ $announcement->body }}</p>
-</body>
-
-</html>
+@endsection
