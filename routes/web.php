@@ -12,5 +12,19 @@
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 });
+
+// Eloquent model => Post - usually a noun (doesn't have to be)
+// controller => PostsController
+// migration => create_posts_table
+
+Route::get('/announcements', 'AnnouncementController@index');
+Route::get('/announcements/{announcement}', 'AnnouncementController@show');
+
+//Route::get('/', function () {
+//
+//});
+
+//Route::get('announcements', 'AnnouncementController');
