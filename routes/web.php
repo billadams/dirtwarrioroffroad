@@ -13,7 +13,11 @@
 
 Route::get('/', function () {
 
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/schedule', function () {
+    return view('schedule.index');
 });
 
 // Eloquent model => Post - usually a noun (doesn't have to be)
