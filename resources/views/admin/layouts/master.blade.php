@@ -7,31 +7,34 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Dirt Warrior Offroad</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    {{--<link rel="stylesheet" href="css/app.css"/>--}}
-    <link rel="stylesheet" href="/css/sticky-footer.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/sticky-footer.css">
+    <link rel="stylesheet" href="../../css/admin.css">
 
     @yield('head')
 
 </head>
 <body>
 
-    @include('layouts.header')
+    <div class="wrapper">
 
-    @include('layouts.nav')
+        @include('admin.layouts.header')
 
-    <main role="main">
+        @include('admin.layouts.nav')
 
-        @yield('content')
+        <div class="container" style="display:block;">
 
-        @include('layouts.footer')
+            @yield('content')
 
-    </main>
+        </div>
+
+        @include('admin.layouts.footer')
+
+    </div> <!-- ./wrapper -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

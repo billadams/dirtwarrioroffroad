@@ -1,5 +1,5 @@
 <header>
-    <div class="text-center">
+    <div class="container">
         <h1>Dirt Warrior Offroad MX Series</h1>
     </div>
 </header>

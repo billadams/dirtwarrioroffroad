@@ -24,4 +24,14 @@ class AnnouncementController extends Controller
 
         return view('announcements.show', compact('announcement'));
     }
+
+    public function create(Announcement $announcement)
+    {
+
+//        $announcement = Announcement::find($id);
+
+//        return $announcement;
+
+        return view('admin.announcements.create', compact('announcement'));
+    }
 }

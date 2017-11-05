@@ -1,0 +1,46 @@
+/*--------------------------HEADER STYLES--------------------------*/
+header {
+    /*background-color: green;*/
+    height: 56px;
+    /*line-height: 150px;*/
+    /*text-align: center;*/
+}
+header h1 {
+    margin: 0;
+    line-height: 56px;
+}
+
+/*--------------------------NAVIGATION STYLES--------------------------*/
+nav {
+    background-color: #64fa0a;
+    border-bottom: 1px solid #327105;
+    margin-bottom: 2.5rem;
+}
+nav a {
+    color: inherit;
+}
+nav a:hover, nav .active {
+    background-color: #327a05;
+    /*color: #404040;*/
+    color: #64fa0a
+}
+.navbar-toggler {
+    background-color: gray;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/*--------------------------HOME PAGE STYLES--------------------------*/
+.banner-image {
+    margin: -2.5rem auto 4em;
+    max-width: 1920px;
+}
+
+/*--------------------------FOOTER STYLES--------------------------*/
+footer {
+    background-color: #64fa0a;
+}
+footer a, footer a:hover {
+    color: inherit;
+}
