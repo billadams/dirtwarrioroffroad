@@ -10,7 +10,7 @@ class AnnouncementController extends Controller
     {
         $announcements = Announcement::all();
 
-        return view('announcements.index', compact('announcements'));
+        return view('admin.announcements.index', compact('announcements'));
     }
 
     // Using route model binding. Looks for the name of the variable
