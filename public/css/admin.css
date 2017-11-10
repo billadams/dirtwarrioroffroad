@@ -1,9 +1,25 @@
+/*
+Neon green: #64fa0a
+Medium neon green: #5ce009
+Darker green: #327105
+ */
+
 body {
     /*font-family: 'Poppins', sans-serif;*/
     color: #5a5a5a;
 }
 p {
     line-height: 1.7em;
+}
+
+/*--------------------------HEADER STYLES--------------------------*/
+header {
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+header h2 {
+    line-height: 100px;
 }
 
 /*--------------------------NAVIGATION STYLES--------------------------*/
@@ -14,22 +30,23 @@ a, a:hover, a:focus {
 }
 #sidebar {
     background: #64fa0a;
+    height: 100vh;
     transition: all 0.3s;
 }
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #5ce009;
 }
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #327105;
+    border-bottom: 1px solid #5ce009;
 }
 #sidebar ul p {
     color: #fff;
     padding: 10px;
 }
 #sidebar ul li a {
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 1.1em;
     display: block;
 }
@@ -46,17 +63,11 @@ ul ul a {
     padding-left: 30px !important;
     background: #6d7fcc;
 }
-#sidebar {
-    float: left;
-    min-width: 250px;
-    max-width: 250px;
-    height: 100vh;
-}
+
 
 /*--------------------------FOOTER STYLES--------------------------*/
 .footer {
     border-top: 1px solid #e3e3e3;
     padding: 15px;
     text-align: center;
-    text-indent: 250px;
 }

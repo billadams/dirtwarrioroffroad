@@ -12,29 +12,45 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/sticky-footer.css">
-    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="/css/sticky-footer.css">
+    <link rel="stylesheet" href="/../../css/admin.css">
 
     @yield('head')
 
 </head>
 <body>
 
-    <div class="wrapper">
+    {{--<div class="wrapper">--}}
+        <div class="row no-gutters">
 
-        @include('admin.layouts.header')
+            <div class="col-md-3">
 
-        @include('admin.layouts.nav')
+                @include('admin.layouts.nav')
 
-        <div class="container" style="display:block;">
+            </div>
 
-            @yield('content')
+            <div class="col-md-9">
 
+                @include('admin.layouts.header')
+
+                <div class="container">
+
+                    @yield('content')
+
+                </div>
+
+                @include('admin.layouts.footer')
+
+            </div>
         </div>
 
-        @include('admin.layouts.footer')
 
-    </div> <!-- ./wrapper -->
+
+
+
+
+
+    {{--</div> <!-- ./wrapper -->--}}
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

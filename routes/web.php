@@ -11,10 +11,17 @@
 |
 */
 
+// Admin routes
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/announcements', 'AnnouncementController@index');
+Route::get('/admin/announcements/create', 'AnnouncementController@create');
+
+Route::post('/admin/announcements', 'AnnouncementController@store');
+
+// Public viewable routes
 Route::get('/', function () {
     return view('home');
 });
-
 Route::get('/schedule', function () {
     return view('schedule.index');
 });
@@ -25,20 +32,13 @@ Route::get('/point-standings', function () {
     return view('point_standings.index');
 });
 
-Route::get('/admin', function() {
-    return view('admin.index');
-});
+Route::get('/announcements', 'AnnouncementController@index');
+Route::get('/announcements/{announcement}', 'AnnouncementController@show');
+
 
 // Eloquent model => Post - usually a noun (doesn't have to be)
 // controller => PostsController
 // migration => create_posts_table
-
-Route::get('/admin/announcements/create', 'AnnouncementController@create');
-
-
-Route::get('/announcements', 'AnnouncementController@index');
-Route::get('/announcements/{announcement}', 'AnnouncementController@show');
-
 
 //Route::get('/', function () {
 //
