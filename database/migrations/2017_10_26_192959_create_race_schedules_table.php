@@ -16,9 +16,9 @@ class CreateRaceSchedulesTable extends Migration
         Schema::create('race_schedules', function (Blueprint $table) {
             $table->increments('id');
             $table->dateTime('date');
-            $table->string('name', 50);
-            $table->text('description')->nullable();
-            $table->string('location', 50)->nullable();
+            $table->string('title', 50);
+            $table->string('description')->nullable();
+            $table->string('directions', 50)->nullable();
         });
     }
 

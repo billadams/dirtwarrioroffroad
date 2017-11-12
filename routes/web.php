@@ -13,10 +13,20 @@
 
 // Admin routes
 Route::get('/admin', 'AdminController@index');
+
 Route::get('/admin/announcements', 'AnnouncementController@index');
 Route::get('/admin/announcements/create', 'AnnouncementController@create');
-
+Route::get('/admin/announcements/{id}/edit', 'AnnouncementController@edit');
 Route::post('/admin/announcements', 'AnnouncementController@store');
+Route::patch('/admin/announcements/{id}', 'AnnouncementController@update');
+Route::delete('admin/announcements/{id}', 'AnnouncementController@destroy');
+
+Route::get('/admin/schedule', 'RaceScheduleController@index');
+Route::get('/admin/schedule/create', 'RaceScheduleController@create');
+Route::get('/admin/schedule/{id}/edit', 'RaceScheduleController@edit');
+Route::post('/admin/schedule', 'RaceScheduleController@store');
+Route::patch('/admin/schedule/{id}', 'RaceScheduleController@update');
+Route::delete('admin/schedule/{id}', 'RaceScheduleController@destroy');
 
 // Public viewable routes
 Route::get('/', function () {
