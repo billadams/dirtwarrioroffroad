@@ -35,6 +35,20 @@ Route::post('/admin/classes', 'RaceClassController@store');
 Route::patch('/admin/classes/{id}', 'RaceClassController@update');
 Route::delete('admin/classes/{id}', 'RaceClassController@destroy');
 
+Route::get('/admin/results', 'RaceResultController@index');
+Route::get('/admin/results/create', 'RaceResultController@create');
+Route::get('/admin/results/{result}/edit', 'RaceResultController@edit');
+Route::post('/admin/results', 'RaceResultController@store');
+Route::patch('/admin/results/{id}', 'RaceResultController@update');
+Route::delete('admin/results/{id}', 'RaceResultController@destroy');
+
+Route::get('/admin/resultpositions/{result}', 'RaceResultPositionController@index');
+Route::get('/admin/resultpositions/create', 'RaceResultPositionController@create');
+Route::get('/admin/resultpositions/{result}/edit', 'RaceResultPositionController@edit');
+Route::post('/admin/resultpositions', 'RaceResultPositionController@store');
+Route::patch('/admin/resultpositions/{id}', 'RaceResultPositionController@update');
+Route::delete('admin/resultpositions/{id}', 'RaceResultPositions@destroy');
+
 // Public viewable routes
 Route::get('/', function () {
     return view('home');
@@ -49,7 +63,7 @@ Route::get('/point-standings', function () {
     return view('point_standings.index');
 });
 
-Route::get('/announcements', 'AnnouncementController@index');
+Route::get('/announcements', 'AnnouncementController@view');
 Route::get('/announcements/{announcement}', 'AnnouncementController@show');
 
 

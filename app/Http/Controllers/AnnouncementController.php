@@ -8,7 +8,7 @@ use App\Announcement;
 class AnnouncementController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display an admin listing of the resource.
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -16,6 +16,17 @@ class AnnouncementController extends Controller
         $announcements = Announcement::all();
 
         return view('admin.announcements.index', compact('announcements'));
+    }
+
+    /**
+     * Display a public listing of the resource.
+     * @return \Illuminate\Http\Response
+     */
+    public function view()
+    {
+        $announcements = Announcement::all();
+
+        return view('announcements.index', compact('announcements'));
     }
 
     /**

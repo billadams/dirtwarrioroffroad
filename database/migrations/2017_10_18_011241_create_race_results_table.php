@@ -16,7 +16,6 @@ class CreateRaceResultsTable extends Migration
     {
         Schema::create('race_results', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('race_classes_id')->unsigned();
             $table->string('name', 50);
             $table->date('date');
             $table->timestamps();

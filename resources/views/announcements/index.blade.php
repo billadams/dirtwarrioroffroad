@@ -11,6 +11,7 @@
             <div class="col-md-9">
                 @foreach ($announcements as $announcement)
                     <h3><a href="/announcements/{{ $announcement->id }}">{{ $announcement->title }}</a></h3>
+                    <p>{{ $announcement->body }}</p>
                 @endforeach
             </div> <!-- ./col-md-9 -->
 

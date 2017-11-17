@@ -1,21 +1,26 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\RaceResult;
+use App\RaceResultPosition;
 
-class RaceResultController extends Controller
+class RaceResultPositionController
 {
     /**
      * Display an admin listing of the resource.
+     *
+     * @param  RaceResult $result
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(RaceResult $result)
     {
-        $results = RaceResult::all();
+//        dd(request()->all());
+        $positions = RaceResultPosition::all();
 
-        return view('admin.results.index', compact('results'));
+        return view('admin.resultpositions.index', compact('result', 'positions'));
     }
 
     /**
@@ -46,12 +51,12 @@ class RaceResultController extends Controller
     {
         $this->validate(request(), [
             'name' => 'required',
-            'date'  => 'required'
+            'date' => 'required'
         ]);
 
         RaceResult::create([
             'name' => request('name'),
-            'date'  => request('date')
+            'date' => request('date')
         ]);
 
         return redirect('admin/results');
@@ -95,7 +100,7 @@ class RaceResultController extends Controller
         RaceResult::where('id', $id)
             ->update([
                 'name' => request('name'),
-                'date'  => request('date')
+                'date' => request('date')
             ]);
 
         return redirect('admin/results');

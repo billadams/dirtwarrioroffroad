@@ -15,6 +15,7 @@ class CreateRaceClassesTable extends Migration
     {
         Schema::create('race_classes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('class_id')->unsigned()->unique();
             $table->string('name');
         });
     }
