@@ -9,6 +9,7 @@
         <li class="{{Request::is('/admin') ? 'active' : ''}}"><a href="/admin">Home</a></li>
         <li class="{{Request::is('/admin/announcements') ? 'active' : ''}}"><a href="/admin/announcements">Announcements</a></li>
         <li class="{{Request::is('/schedules') ? 'active' : ''}}"><a href="/admin/schedule">Race Schedule</a></li>
+        <li class=""><a href="/admin/classes">Race Classes</a></li>
         <li><a href="#">Race Results</a></li>
         <li><a href="#">Point Standings</a>
         <li><a href="#">Photo Galleries</a></li>

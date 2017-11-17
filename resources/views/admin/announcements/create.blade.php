@@ -6,13 +6,15 @@
 
     <hr>
 
+    @include ('/admin.layouts.partials.errors')
+
     <form method="POST" action="/admin/announcements">
         {{ csrf_field() }}
 
         <div class="form-group row">
             <label for="title" class="col-md-2 col-form-label">Title</label>
             <div class="col-md-10">
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" autofocus>
             </div>
         </div>
 
@@ -34,6 +36,7 @@
                 <button type="submit" class="btn btn-primary">Create</button>
             </div>
         </div>
+
     </form>
 
 @endsection

@@ -4,8 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RaceResult extends Model
+class RaceClass extends Model
 {
+    protected $fillable = ['name'];
+    public $timestamps = false;
+
     public function positions()
     {
         return $this->hasMany(RaceResultPosition::class);

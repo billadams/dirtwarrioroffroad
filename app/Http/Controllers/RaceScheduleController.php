@@ -29,14 +29,27 @@ class RaceScheduleController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $this->validate(request(), [
+            'title' => 'required',
+            'date'  => 'required'
+        ]);
+
+        RaceSchedule::create([
+            'title' => request('title'),
+            'date' => request('date'),
+            'gate_open_time' => request('gate_open_time'),
+            'practice_start_time' => request('practice_start_time'),
+            'rider_meeting_time' => request('rider_meeting_time'),
+            'race_start_time' => request('race_start_time'),
+            'description' => request('description'),
+            'directions' => request('directions')
+        ]);
+
+        return redirect('admin/schedule');
     }
 
     /**
@@ -60,7 +73,9 @@ class RaceScheduleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = RaceSchedule::find($id);
+
+        return view('admin.schedule.edit', compact('event'));
     }
 
     /**
@@ -73,7 +88,19 @@ class RaceScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        RaceSchedule::where('id', $id)
+            ->update([
+                'title'               => request('title'),
+                'date'                => request('date'),
+                'gate_open_time'      => request('gate_open_time'),
+                'practice_start_time' => request('practice_start_time'),
+                'rider_meeting_time'  => request('rider_meeting_time'),
+                'race_start_time'     => request('race_start_time'),
+                'description'         => request('description'),
+                'directions'          => request('directions')
+            ]);
+
+        return redirect('admin/schedule');
     }
 
     /**

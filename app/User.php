@@ -35,7 +35,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'email', 'password', 'first_name', 'last_name', 'phone'
     ];
 
     /**
@@ -44,6 +44,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'user_permissions'
     ];
+
+    public function User()
+    {
+        return $this->hasMany(RaceResultPosition::class);
+    }
+
+    public function points()
+    {
+        return $this->hasMany(PointStanding::class);
+    }
 }

@@ -6,7 +6,7 @@
 
     <hr>
 
-    <form method="POST" action="/admin/announcements/{{ $announcement->id }}">
+    <form method="POST" action="/admin/announcements/{{ $announcement }}">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
 
@@ -26,6 +26,9 @@
 
         <div class="form-group row">
             <div class="offset-md-2 col-md-3">
+                {{ csrf_field() }}
+                {{ method_field('PATCH') }}
+
                 <a href="/admin/announcements/" class="btn btn-danger" title="Add new announcement">Cancel</a>
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>

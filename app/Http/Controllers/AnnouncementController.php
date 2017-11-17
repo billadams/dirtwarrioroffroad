@@ -33,6 +33,10 @@ class AnnouncementController extends Controller
      */
     public function store()
     {
+        $this->validate(request(), [
+            'title' => 'required',
+            'body'  => 'required'
+        ]);
 //        dd(request()->all());
         // Create new announcement using the request data
 //        $announcement = new Announcement;
@@ -70,13 +74,13 @@ class AnnouncementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  Announcement $announcement
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Announcement $announcement)
     {
-        $announcement = Announcement::find($id);
+//        $announcement = Announcement::find($id);
 
         return view('admin.announcements.edit', compact('announcement'));
     }
@@ -89,7 +93,7 @@ class AnnouncementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         $announcement = Announcement::find($id);
 

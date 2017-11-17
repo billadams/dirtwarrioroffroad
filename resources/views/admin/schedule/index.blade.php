@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="row">
-        <div class="container add-new-announcement">
+        <div class="container add-new">
             <a href="/admin/schedule/create" class="btn btn-primary" title="Add new event">Add New</a>
         </div>
     </div>
@@ -37,8 +37,12 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Title</th>
+                        <th>Event Name</th>
                         <th>Date</th>
+                        <th>Gates Open</th>
+                        <th>Practice Starts</th>
+                        <th>Riders Meeting</th>
+                        <th>Races Start</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -48,8 +52,12 @@
                             <td>
                                 <input type="checkbox" title="{{ $event->id }}"/>
                             </td>
-                            <td><a href="/admin/schedule/{{ $event->id }}/edit/" title="Edit {{ $event->title }}">{{ $event->title }}</a></td>
+                            <td><a href="/admin/schedule/{{ $event->id }}/edit" title="Edit {{ $event->title }}">{{ $event->title }}</a></td>
                             <td>{{ date($event->date) }}</td>
+                            <td>{{ $event->gate_open_time }}</td>
+                            <td>{{ $event->practice_start_time }}</td>
+                            <td>{{ $event->rider_meeting_time }}</td>
+                            <td>{{ $event->race_start_time }}</td>
                             <td>
                                 <form method="POST" action="/admin/schedule/{{ $event->id }}">
                                     {{ csrf_field() }}

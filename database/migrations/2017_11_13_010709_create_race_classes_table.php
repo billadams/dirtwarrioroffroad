@@ -4,9 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRaceResultsTable extends Migration
+class CreateRaceClassesTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,9 @@ class CreateRaceResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('race_results', function (Blueprint $table) {
+        Schema::create('race_classes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('race_classes_id')->unsigned();
-            $table->string('name', 50);
-            $table->date('date');
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
@@ -30,6 +26,8 @@ class CreateRaceResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('race_results');
+        Schema::table('race_classes', function (Blueprint $table) {
+            //
+        });
     }
 }
