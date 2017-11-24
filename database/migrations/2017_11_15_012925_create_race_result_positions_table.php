@@ -24,7 +24,9 @@ class CreateRaceResultPositionsTable extends Migration
                 ->references('id')->on('race_results');
             $table->foreign('race_class_id', 'fk_race_result_positions_race_class_id_race_classes_class_id')
                 ->references('class_id')->on('race_classes');
-            $table->tinyInteger('overall_position');
+            $table->smallInteger('moto_1')->unsigned();
+            $table->smallInteger('moto_2')->unsigned();
+            $table->smallInteger('overall')->unsigned();
             $table->timestamps();
         });
     }

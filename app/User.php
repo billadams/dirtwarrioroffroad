@@ -47,9 +47,14 @@ class User extends Authenticatable
         'password', 'remember_token', 'user_permissions'
     ];
 
-    public function User()
+    public function positions()
     {
-        return $this->hasMany(RaceResultPosition::class);
+        return $this->hasMany(RaceResultPosition::class, 'racer_id', 'racer_id');
+    }
+
+    public function results()
+    {
+        return $this->belongsToMany(RaceResult::class, 'race_result_positions', 'racer_id', 'racer_id');
     }
 
     public function points()

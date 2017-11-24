@@ -9,54 +9,38 @@
     <div class="container">
 
         <h2>Race Results</h2>
-        <h3 class="text-muted">Event: Race Name</h3>
-        <p class="text-muted">Date: August 5th, 2017</p>
+        <h3 class="text-muted">Event: {{ $most_recent_event->name }}</h3>
+        <p class="text-muted">Date: {{ $most_recent_event->date->format('F d, Y') }}</p>
 
         <div class="row">
 
-            <div class="col-md-9">
-                <table class="table table-striped table-responsive{-sm|-md}">
-                    <thead>
-                    <tr>
-                        <th>Position</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Joe</td>
-                        <td>Dirt</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>John</td>
-                        <td>Doe</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Big</td>
-                        <td>Poppa</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Tim</td>
-                        <td>McGraw</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Jake</td>
-                        <td>Hutson</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Rory</td>
-                        <td>Pickel</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div> <!-- ./col-md-9 -->
+            @foreach ($classes as $class)
+                <div class="col-md-9">
+                    <h4>{{ $class->name }}</h4>
+                    <table class="table table-striped table-responsive{-sm|-md}">
+                        <thead>
+                        <tr>
+                            <th>Overall</th>
+                            <th>Moto 1</th>
+                            <th>Moto 2</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                        </tr>
+                        </thead>
+                        @foreach ($results as $result)
+                            <tbody>
+                                @if ($result->class_id == $class->class_id)
+                                    <tr>{{ $result->overall }}</tr>
+                                    <tr>{{ $result->moto_1 }}</tr>
+                                    <tr>{{ $result->moto_2 }}</tr>
+                                    <tr>{{ $result->first_name }}</tr>
+                                    <tr>{{ $result->last_name }}</tr>
+                                @endif
+                            </tbody>
+                        @endforeach
+                    </table>
+                </div> <!-- ./col-md-9 -->
+            @endforeach
 
             <div class="col-md-3">
                 <h4>Past Results</h4>

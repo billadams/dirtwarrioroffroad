@@ -59,6 +59,7 @@ Route::get('/schedule', function () {
 Route::get('/results', function () {
     return view('results.index');
 });
+Route::get('/results', 'RaceResultController@view');
 Route::get('/point-standings', function () {
     return view('point_standings.index');
 });

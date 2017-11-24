@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\RaceClass;
 use Illuminate\Http\Request;
 use App\RaceResult;
 
@@ -24,9 +25,14 @@ class RaceResultController extends Controller
      */
     public function view()
     {
-        $announcements = Announcement::all();
+        $most_recent_event = RaceResult::orderBy('date', 'desc')->first();
+        $classes = RaceClass::all();
 
-        return view('announcements.index', compact('announcements'));
+        $race_result = new RaceResult();
+        $results = $race_result->event_results($most_recent_event->id);
+//        dd($results);
+
+        return view('results.index', compact('most_recent_event', 'results', 'classes'));
     }
 
     /**
