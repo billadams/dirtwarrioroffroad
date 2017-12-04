@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\FileUploads\ResultsUploadHelper;
 use App\RaceClass;
 use Illuminate\Http\Request;
 use App\RaceResult;
@@ -30,7 +31,6 @@ class RaceResultController extends Controller
 
         $race_result = new RaceResult();
         $results = $race_result->event_results($most_recent_event->id);
-//        dd($results);
 
         return view('results.index', compact('most_recent_event', 'results', 'classes'));
     }
@@ -48,13 +48,22 @@ class RaceResultController extends Controller
      * Store a newly created resource in storage.
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
         $this->validate(request(), [
             'name' => 'required',
             'date'  => 'required'
         ]);
 
+        // Get the uploaded file and parse it.
+        $file = $request->file('file_upload');
+        $results = ResultsUploadHelper::parse_csv_file($file);
+
+        // Store the results in the related tables.
+        $race_result = new RaceResult();
+        $race_result->store_results($results);
+
+        // Store the actual race result event.
         RaceResult::create([
             'name' => request('name'),
             'date'  => request('date')

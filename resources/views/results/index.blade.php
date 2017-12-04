@@ -27,17 +27,20 @@
                             <th>Last Name</th>
                         </tr>
                         </thead>
-                        @foreach ($results as $result)
-                            <tbody>
-                                @if ($result->class_id == $class->class_id)
-                                    <tr>{{ $result->overall }}</tr>
-                                    <tr>{{ $result->moto_1 }}</tr>
-                                    <tr>{{ $result->moto_2 }}</tr>
-                                    <tr>{{ $result->first_name }}</tr>
-                                    <tr>{{ $result->last_name }}</tr>
-                                @endif
-                            </tbody>
-                        @endforeach
+                        <tbody>
+                            @foreach ($results as $result)
+                                <tr>
+                                    @if ($result->class_id == $class->class_id)
+                                        <td>{{ $result->overall }}</td>
+                                        <td>{{ $result->moto_1 }}</td>
+                                        <td>{{ $result->moto_2 }}</td>
+                                        <td>{{ $result->first_name }}</td>
+                                        <td>{{ $result->last_name }}</td>
+                                    @endif
+                                </tr>
+
+                            @endforeach
+                        </tbody>
                     </table>
                 </div> <!-- ./col-md-9 -->
             @endforeach
