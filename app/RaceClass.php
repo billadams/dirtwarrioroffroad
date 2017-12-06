@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RaceClass extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = [ 'class_id', 'name'];
     public $timestamps = false;
 
     public function positions()

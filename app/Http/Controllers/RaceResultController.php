@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Database\ResultDatabaseHelper;
 use App\Helpers\FileUploads\ResultsUploadHelper;
 use App\RaceClass;
 use Illuminate\Http\Request;
@@ -59,6 +60,15 @@ class RaceResultController extends Controller
         $file = $request->file('file_upload');
         $results = ResultsUploadHelper::parse_csv_file($file);
 
+        // Get the Racers.
+        $racers = ResultDatabaseHelper::get_racers($results);
+
+        // Get the Race Classes.
+        $race_classes = ResultDatabaseHelper::get_race_classes($results);
+
+        // Get the Result Positions.
+        $result_positions = ResultDatabaseHelper::get_race_position_results($results);
+
         // Store the results in the related tables.
         $race_result = new RaceResult();
         $race_result->store_results($results);
@@ -66,8 +76,14 @@ class RaceResultController extends Controller
         // Store the actual race result event.
         RaceResult::create([
             'name' => request('name'),
-            'date'  => request('date')
+            'date' => request('date')
         ]);
+
+        ResultDatabaseHelper::store_racers($racers);
+        ResultDatabaseHelper::store_classes($race_classes);
+//        dd($result_positions);
+
+        ResultDatabaseHelper::store_race_position_results($result_positions);
 
         return redirect('admin/results');
     }

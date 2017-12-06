@@ -6,7 +6,7 @@ class ResultsUploadHelper
 {
     public static function parse_csv_file($file)
     {
-    $results = array();
+        $results = array();
 
         $file = fopen($file, 'rb');
         while (! feof($file)) {
@@ -15,6 +15,7 @@ class ResultsUploadHelper
             $results[] = $result;
         }
 
+//        dd($results);
         return $results;
     }
 }
