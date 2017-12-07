@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h2>Edit Race Information</h2>
+    <h2>Edit Race Result</h2>
 
     <hr>
 

@@ -23,7 +23,7 @@ class ResultDatabaseHelper
 
             $race_classes[] = $row;
         }
-//        dd($race_classes);
+
         return $race_classes;
     }
 
@@ -39,7 +39,7 @@ class ResultDatabaseHelper
 
             $racers[] = $row;
         }
-//        dd($racers);
+
         return $racers;
     }
 
@@ -60,7 +60,7 @@ class ResultDatabaseHelper
 
             $result_positions[] = $row;
         }
-//        dd($result_positions);
+
         return $result_positions;
     }
 
@@ -86,10 +86,8 @@ class ResultDatabaseHelper
         foreach ($race_classes as $row)
         {
             $record = RaceClass::where('class_id', '=', $row[ 'class_id' ])->first();
-//            dd($record->class_id);
             if (isset($record->class_id) &&  $record->class_id == $row['class_id'])
             {
-//                dd($class_id);
                 continue;
             }
             RaceClass::create([
@@ -101,20 +99,16 @@ class ResultDatabaseHelper
 
     public static function store_race_position_results($result_positions)
     {
-        // Store the actual race result event.
         foreach ($result_positions as $row)
         {
             RaceResultPosition::create([
                 'racer_id' => $row['racer_id'],
                 'race_results_id' => $row['race_results_id'],
                 'race_class_id' => $row['race_class_id'],
-                'moto_1'  => $row['race_class_id'],
+                'moto_1'  => $row['moto_1'],
                 'moto_2' => $row['moto_2'],
                 'overall' => $row['overall']
             ]);
         }
-
     }
-
-
 }

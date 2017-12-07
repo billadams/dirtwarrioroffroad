@@ -31,7 +31,7 @@ class RaceResultController extends Controller
         $classes = RaceClass::all();
 
         $race_result = new RaceResult();
-        $results = $race_result->event_results($most_recent_event->id);
+        $results = $race_result->get_event_results($most_recent_event->id);
 
         return view('results.index', compact('most_recent_event', 'results', 'classes'));
     }
@@ -81,8 +81,6 @@ class RaceResultController extends Controller
 
         ResultDatabaseHelper::store_racers($racers);
         ResultDatabaseHelper::store_classes($race_classes);
-//        dd($result_positions);
-
         ResultDatabaseHelper::store_race_position_results($result_positions);
 
         return redirect('admin/results');

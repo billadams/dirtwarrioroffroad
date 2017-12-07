@@ -15,7 +15,7 @@
         <div class="row">
 
             @foreach ($classes as $class)
-                <div class="col-md-9">
+                <div class="col-md-9 class-result">
                     <h4>{{ $class->name }}</h4>
                     <table class="table table-striped table-responsive{-sm|-md}">
                         <thead>
@@ -29,16 +29,15 @@
                         </thead>
                         <tbody>
                             @foreach ($results as $result)
-                                <tr>
-                                    @if ($result->class_id == $class->class_id)
+                                @if ($result->class_id == $class->class_id)
+                                    <tr>
                                         <td>{{ $result->overall }}</td>
                                         <td>{{ $result->moto_1 }}</td>
                                         <td>{{ $result->moto_2 }}</td>
                                         <td>{{ $result->first_name }}</td>
                                         <td>{{ $result->last_name }}</td>
-                                    @endif
-                                </tr>
-
+                                    </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

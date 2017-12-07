@@ -37,6 +37,12 @@ nav a:hover, nav .active {
     max-width: 1920px;
 }
 
+/*--------------------------EVENT RESULTS STYLES--------------------------*/
+.class-result {
+    margin-bottom: 2em;
+}
+
+
 /*--------------------------FOOTER STYLES--------------------------*/
 footer {
     background-color: #64fa0a;

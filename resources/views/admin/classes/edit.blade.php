@@ -19,7 +19,7 @@
 
         <div class="form-group row">
             <div class="offset-md-2 col-md-3">
-                <a href="/admin/announcements/" class="btn btn-danger" title="Add new announcement">Cancel</a>
+                <a href="/admin/classes/" class="btn btn-danger" title="Add new announcement">Cancel</a>
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </div>
