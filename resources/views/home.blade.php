@@ -20,9 +20,9 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-4">
-            <img class="rounded-circle"
-                 src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                 alt="Generic placeholder image" width="140" height="140">
+            <svg xmlns="http://www.w3.org/2000/svg" class="si-glyph-abacus">
+                <use xlink:href="img/sprite.svg#si-glyph-calendar-1"/>
+            </svg>
             <h2>Coming Up</h2>
             <p>Race Title 1 : Date</p>
             <p>Race Title 1 : Date</p>
@@ -30,29 +30,32 @@
             <p>Race Title 1 : Date</p>
             <p>Race Title 1 : Date</p>
 
-            <p><a class="btn btn-secondary" href="#" role="button">Full Schedule &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="schedule" role="button" title="Full Schedule">Full Schedule
+                    &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <img class="rounded-circle"
-                 src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                 alt="Generic placeholder image" width="140" height="140">
+            <svg xmlns="http://www.w3.org/2000/svg" class="si-glyph-abacus">
+                <use xlink:href="img/sprite.svg#si-glyph-champion-cup"/>
+            </svg>
+
             <h2>Results</h2>
             <p>Position 1 : Racer Name</p>
             <p>Position 2 : Racer Name</p>
             <p>Position 3 : Racer Name</p>
-            <p><a class="btn btn-secondary" href="#" role="button">All Results &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="results" role="button" title="All Results">All Results &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <img class="rounded-circle"
-                 src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                 alt="Generic placeholder image" width="140" height="140">
+            <svg xmlns="http://www.w3.org/2000/svg" class="si-glyph-abacus">
+                <use xlink:href="img/sprite.svg#si-glyph-louder-speaker"/>
+            </svg>
             <h2>Announcements</h2>
             <p>Announcement Title : Date</p>
             <p>Announcement Title : Date</p>
             <p>Announcement Title : Date</p>
             <p>Announcement Title : Date</p>
             <p>Announcement Title : Date</p>
-            <p><a class="btn btn-secondary" href="#" role="button">All Announcements &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="announcements" role="button" title="All Announcements">All
+                    Announcements &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 </div> <!-- /.container -->

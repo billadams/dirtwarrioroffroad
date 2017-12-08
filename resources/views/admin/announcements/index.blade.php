@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="row">
-        <div class="container add-new">
+        <div class="add-new">
             <a href="/admin/announcements/create" class="btn btn-primary" title="Add new announcement">Add New</a>
         </div>
     </div>
@@ -49,13 +49,15 @@
                                 <input type="checkbox" title="{{ $announcement->id }}"/>
                             </td>
                             <td><a href="/admin/announcements/{{ $announcement->id }}/edit" title="Edit {{ $announcement->title }}">{{ $announcement->title }}</a></td>
-                            <td>{{ date($announcement->updated_at) }}</td>
+                            <td>{{ date($announcement->updated_at->format('m/d/Y')) }}</td>
                             <td>
                                 <form method="POST" action="/admin/announcements/{{ $announcement->id }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
-                                    <button type="submit" class="btn btn-danger" title="Delete {{ $announcement->title }}">Delete</button>
+                                    <button type="submit" class="btn btn-outline-danger btn-sm"
+                                            title="Delete {{ $announcement->title }}">Delete
+                                    </button>
 
                                 </form>
                             </td>

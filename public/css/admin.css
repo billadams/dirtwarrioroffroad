@@ -12,6 +12,21 @@ p {
     line-height: 1.7em;
 }
 
+nav a:hover, nav .active {
+    background-color: #327a05;
+    /*color: #404040;*/
+    color: #64fa0a
+}
+
+a.btn {
+    cursor: default;
+}
+
+.alert {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 /*--------------------------HEADER STYLES--------------------------*/
 header {
     border-bottom: 1px solid #e7e7e7;

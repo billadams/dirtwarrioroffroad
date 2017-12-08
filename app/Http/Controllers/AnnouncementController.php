@@ -106,6 +106,11 @@ class AnnouncementController extends Controller
      */
     public function update($id)
     {
+        $this->validate(request(), [
+            'title' => 'required',
+            'body'  => 'required'
+        ]);
+
         $announcement = Announcement::find($id);
 
         Announcement::where('id', $id)

@@ -1,4 +1,4 @@
-<nav id="sidebar" class="">
+<nav id="sidebar">
     <!-- Sidebar Header -->
     <div class="sidebar-header">
         <h1>Dirt Warrior Offroad</h1>
@@ -6,11 +6,13 @@
 
     <!-- Sidebar Links -->
     <ul class="list-unstyled components">
-        <li class="{{Request::is('/admin') ? 'active' : ''}}"><a href="/admin">Home</a></li>
-        <li class="{{Request::is('/admin/announcements') ? 'active' : ''}}"><a href="/admin/announcements">Announcements</a></li>
-        <li class="{{Request::is('/schedules') ? 'active' : ''}}"><a href="/admin/schedule">Race Schedule</a></li>
-        <li class=""><a href="/admin/classes">Race Classes</a></li>
-        <li><a href="/admin/results">Race Results</a></li>
+        <li><a href="/admin" class="{{Request::is('admin') ? 'active' : ''}}">Home</a></li>
+        <li><a href="/admin/announcements"
+               class="{{Request::is('admin/announcements') ? 'active' : ''}}">Announcements</a></li>
+        {{Request::is('/') ? 'active' : ''}}
+        <li><a href="/admin/schedule" class="{{Request::is('admin/schedule') ? 'active' : ''}}">Race Schedule</a></li>
+        <li><a href="/admin/classes" class="{{Request::is('admin/classes') ? 'active' : ''}}">Race Classes</a></li>
+        <li><a href="/admin/results" class="{{Request::is('admin/results') ? 'active' : ''}}">Race Results</a></li>
         <li><a href="#">Point Standings</a>
         <li><a href="#">Photo Galleries</a></li>
     </ul>

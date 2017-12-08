@@ -20,7 +20,8 @@
         <div class="form-group row">
             <label for="date" class="col-2 col-form-label">Date</label>
             <div class="col-10">
-                <input class="form-control" type="date" value="{{ $event->date }}" id="date" name="date">
+                <input class="form-control" type="date" value="{{ $event->date->format('Y-m-d') }}" id="date"
+                       name="date">
             </div>
         </div>
 
@@ -75,7 +76,7 @@
 
         <div class="form-group row">
             <div class="offset-md-2 col-md-3">
-                <a href="/admin/schedule/" class="btn btn-danger" title="Add new announcement">Cancel</a>
+                <a href="/admin/schedule/" class="btn btn-secondary" title="Return to previous page">Cancel</a>
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </div>

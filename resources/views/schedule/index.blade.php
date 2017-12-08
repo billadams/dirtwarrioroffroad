@@ -13,27 +13,25 @@
         <table class="table table-striped table-responsive{-sm|-md}">
             <thead>
                 <tr>
-                    <th>Date</th>
                     <th>Event Name</th>
-                    <th>Directions</th>
+                    <th>Date</th>
+                    <th>Gates Open</th>
+                    <th>Practice Starts</th>
+                    <th>Riders Meeting</th>
+                    <th>Races Start</th>
                 </tr>
             </thead>
             <tbody>
+            @foreach ($race_events as $event)
                 <tr>
-                    <td>September 12th, 2017</td>
-                    <td>Abbot</td>
-                    <td><a href="#">Abbot directions</a></td>
+                    <td>{{ $event->title }}</td>
+                    <td>{{ $event->date->format('m/d/Y') }}</td>
+                    <td>{{ date('g:i A', strtotime($event->gate_open_time)) }}</td>
+                    <td>{{ date('g:i A', strtotime($event->practice_start_time)) }}</td>
+                    <td>{{ date('g:i A', strtotime($event->rider_meeting_time)) }}</td>
+                    <td>{{ date('g:i A', strtotime($event->race_start_time)) }}</td>
                 </tr>
-                <tr>
-                    <td>September 27th, 2017</td>
-                    <td>Homer</td>
-                    <td><a href="#">Homer directions</a></td>
-                </tr>
-                <tr>
-                    <td>November 3rd, 2017</td>
-                    <td>Yankton</td>
-                    <td><a href="#">Yankton directions</a></td>
-                </tr>
+            @endforeach
             </tbody>
         </table>
 

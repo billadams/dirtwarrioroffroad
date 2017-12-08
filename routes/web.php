@@ -53,12 +53,13 @@ Route::delete('admin/resultpositions/{id}', 'RaceResultPositions@destroy');
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/schedule', function () {
-    return view('schedule.index');
-});
-Route::get('/results', function () {
-    return view('results.index');
-});
+//Route::get('/schedule', function () {
+//    return view('schedule.index');
+//});
+Route::get('/schedule', 'RaceScheduleController@view');
+//Route::get('/results', function () {
+//    return view('results.index');
+//});
 Route::get('/results', 'RaceResultController@view');
 Route::get('/point-standings', function () {
     return view('point_standings.index');

@@ -81,6 +81,10 @@ class RaceClassController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(request(), [
+            'name' => 'required'
+        ]);
+
         RaceClass::where('id', $id)
             ->update([
                 'name' => request('name')

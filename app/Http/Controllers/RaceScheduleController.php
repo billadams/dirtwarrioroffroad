@@ -13,9 +13,21 @@ class RaceScheduleController extends Controller
      */
     public function index()
     {
-        $schedule = RaceSchedule::all();
+        $schedule = RaceSchedule::orderBy('date', 'asc')->get();
 
         return view('admin.schedule.index', compact('schedule'));
+    }
+
+    /**
+     * Display a public listing of the resource.
+     * @return \Illuminate\Http\Response
+     */
+    public function view()
+    {
+        $race_events = RaceSchedule::orderBy('date', 'desc')->where('date', '>=', now())->get();
+
+//        dd($race_events);
+        return view('schedule.index', compact('race_events'));
     }
 
     /**

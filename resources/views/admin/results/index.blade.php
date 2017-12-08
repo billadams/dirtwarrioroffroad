@@ -49,17 +49,19 @@
                                 <input type="checkbox" title="{{ $result->id }}"/>
                             </td>
                             <td><a href="/admin/results/{{ $result->id }}/edit" title="Edit {{ $result->name }}">{{ $result->name }}</a></td>
-                            <td>{{ date($result->date) }}</td>
-                            <td>
-                            <td><a href="/admin/resultpositions/{{ $result->id }}" class="btn btn-primary"
-                                   title="Add new race result">Results</a>
-                            </td>
+                            <td>{{ $result->date->format('m/d/Y') }}</td>
+                            {{--<td>--}}
+                            {{--<td><a href="/admin/resultpositions/{{ $result->id }}" class="btn btn-primary"--}}
+                            {{--title="Add new race result">Results</a>--}}
+                            {{--</td>--}}
                             <td>
                                 <form method="POST" action="/admin/results/{{ $result->id }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
-                                    <button type="submit" class="btn btn-danger" title="Delete {{ $result->name }}">Delete</button>
+                                    <button type="submit" class="btn btn-outline-danger btn-sm"
+                                            title="Delete {{ $result->name }}">Delete
+                                    </button>
 
                                 </form>
                             </td>

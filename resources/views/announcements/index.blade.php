@@ -8,14 +8,14 @@
 
         <div class="row">
 
-            <div class="col-md-9">
+            <div class="col-md-8">
                 @foreach ($announcements as $announcement)
                     <h3><a href="/announcements/{{ $announcement->id }}">{{ $announcement->title }}</a></h3>
-                    <p>{{ $announcement->body }}</p>
+                    <p>{!!nl2br(e($announcement->body))!!}</p>
                 @endforeach
             </div> <!-- ./col-md-9 -->
 
-            <div class="col-md-3">
+            <div class="col-md-3 ml-md-auto">
                 <h4>Archive</h4>
                 <ul>
                     <li><a href="#" title="2016">2016</a></li>

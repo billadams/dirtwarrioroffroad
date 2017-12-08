@@ -26,13 +26,8 @@
         </div>
 
         <div class="form-group row">
-            {{--<div class="offset-md-2 col-md-2">--}}
-                {{--<button type="submit" class="btn btn-danger">Cancel</button>--}}
-            {{--</div>--}}
-            {{--<div class="col-md-2">--}}
-                {{--<button type="submit" class="btn btn-warning">Save Draft</button>--}}
-            {{--</div>--}}
-            <div class="offset-md-2 col-md-2">
+            <div class="offset-md-2 col-md-3">
+                <a href="/admin/announcements/" class="btn btn-secondary" title="Return to previous page">Cancel</a>
                 <button type="submit" class="btn btn-primary">Create</button>
             </div>
         </div>

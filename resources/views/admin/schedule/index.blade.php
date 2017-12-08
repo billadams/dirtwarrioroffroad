@@ -53,17 +53,19 @@
                                 <input type="checkbox" title="{{ $event->id }}"/>
                             </td>
                             <td><a href="/admin/schedule/{{ $event->id }}/edit" title="Edit {{ $event->title }}">{{ $event->title }}</a></td>
-                            <td>{{ date($event->date) }}</td>
-                            <td>{{ $event->gate_open_time }}</td>
-                            <td>{{ $event->practice_start_time }}</td>
-                            <td>{{ $event->rider_meeting_time }}</td>
-                            <td>{{ $event->race_start_time }}</td>
+                            <td>{{ $event->date->format('m/d/Y') }}</td>
+                            <td>{{ date('g:i A', strtotime($event->gate_open_time)) }}</td>
+                            <td>{{ date('g:i A', strtotime($event->practice_start_time)) }}</td>
+                            <td>{{ date('g:i A', strtotime($event->rider_meeting_time)) }}</td>
+                            <td>{{ date('g:i A', strtotime($event->race_start_time)) }}</td>
                             <td>
                                 <form method="POST" action="/admin/schedule/{{ $event->id }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
-                                    <button type="submit" class="btn btn-danger" title="Delete {{ $event->title }}">Delete</button>
+                                    <button type="submit" class="bbtn btn-outline-danger btn-sm"
+                                            title="Delete {{ $event->title }}">Delete
+                                    </button>
 
                                 </form>
                             </td>

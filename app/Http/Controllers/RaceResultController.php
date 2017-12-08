@@ -16,7 +16,7 @@ class RaceResultController extends Controller
      */
     public function index()
     {
-        $results = RaceResult::all();
+        $results = RaceResult::orderBy('date', 'desc')->get();
 
         return view('admin.results.index', compact('results'));
     }
@@ -70,8 +70,8 @@ class RaceResultController extends Controller
         $result_positions = ResultDatabaseHelper::get_race_position_results($results);
 
         // Store the results in the related tables.
-        $race_result = new RaceResult();
-        $race_result->store_results($results);
+//        $race_result = new RaceResult();
+//        $race_result->store_results($results);
 
         // Store the actual race result event.
         RaceResult::create([

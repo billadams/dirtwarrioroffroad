@@ -13,7 +13,7 @@
 
         <div class="row">
 
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <table class="table table-striped table-responsive{-sm|-md}">
                     <thead>
                     <tr>
@@ -64,7 +64,7 @@
                 </table>
             </div> <!-- ./col-md-8 -->
 
-            <div class="col-md-3">
+            <div class="col-md-3 ml-md-auto">
                 <h4>Archive</h4>
                 <ul>
                     <li><a href="#" title="2016">2016</a></li>
