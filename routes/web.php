@@ -12,7 +12,14 @@
 */
 
 // Admin routes
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin/login', 'SessionsController@create');
+Route::post('/admin/login', 'SessionsController@store');
+Route::get('/admin/logout', 'SessionsController@destroy');
+
+Route::get('/admin', 'AdminController@index')->name('dashboard');
+//Route::middleware(['/admin'])->group(function () {
+//    Route::get('/admin', 'AdminController@index')->name('dashboard');
+//});
 
 Route::get('/admin/announcements', 'AnnouncementController@index');
 Route::get('/admin/announcements/create', 'AnnouncementController@create');
@@ -48,6 +55,13 @@ Route::get('/admin/resultpositions/{result}/edit', 'RaceResultPositionController
 Route::post('/admin/resultpositions', 'RaceResultPositionController@store');
 Route::patch('/admin/resultpositions/{id}', 'RaceResultPositionController@update');
 Route::delete('admin/resultpositions/{id}', 'RaceResultPositions@destroy');
+
+Route::get('/admin/racers/{result}', 'RacerController@index');
+Route::get('/admin/racers/create', 'RacerController@create');
+Route::get('/admin/racers/{result}/edit', 'RacerController@edit');
+Route::post('/admin/racers', 'RacerController@store');
+Route::patch('/admin/racers/{id}', 'RacerController@update');
+Route::delete('admin/racers/{id}', 'RacerController@destroy');
 
 // Public viewable routes
 Route::get('/', function () {

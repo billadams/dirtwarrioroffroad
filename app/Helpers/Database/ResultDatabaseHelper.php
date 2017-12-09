@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\DB;
 
 class ResultDatabaseHelper
 {
+    /**
+     * Gets race class information from the parsed CSV file.
+     * @param $results
+     * @return array
+     */
     public static function get_race_classes($results)
     {
         $race_classes = array();
@@ -27,6 +32,11 @@ class ResultDatabaseHelper
         return $race_classes;
     }
 
+    /**
+     * Gets racer information from the parsed CSV file.
+     * @param $results
+     * @return array
+     */
     public static function get_racers($results)
     {
         $racers = array();
@@ -43,6 +53,12 @@ class ResultDatabaseHelper
         return $racers;
     }
 
+    /**
+     * Gets the position results from the parsed CSV file,
+     * as well as related column information to parents.
+     * @param $results
+     * @return array
+     */
     public static function get_race_position_results($results)
     {
         $result_positions = array();
@@ -64,6 +80,12 @@ class ResultDatabaseHelper
         return $result_positions;
     }
 
+    /**
+     * Stores racers in the User table.
+     * Checks to see if a record exists, if the record exists,
+     * the row from the CSV file is skipped.
+     * @param $racers
+     */
     public static function store_racers($racers)
     {
         foreach ($racers as $row)
@@ -81,6 +103,12 @@ class ResultDatabaseHelper
         }
     }
 
+    /**
+     * Stores race classes in the RaceClass table.
+     * Checks to see if a record exists, if the record exists,
+     * the row from the CSV file is skipped.
+     * @param $race_classes
+     */
     public static function store_classes($race_classes)
     {
         foreach ($race_classes as $row)
@@ -97,6 +125,10 @@ class ResultDatabaseHelper
         }
     }
 
+    /**
+     * Stores race positions in the RacePosition table.
+     * @param $result_positions
+     */
     public static function store_race_position_results($result_positions)
     {
         foreach ($result_positions as $row)

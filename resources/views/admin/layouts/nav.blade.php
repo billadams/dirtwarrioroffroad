@@ -13,6 +13,7 @@
         <li><a href="/admin/schedule" class="{{Request::is('admin/schedule') ? 'active' : ''}}">Race Schedule</a></li>
         <li><a href="/admin/classes" class="{{Request::is('admin/classes') ? 'active' : ''}}">Race Classes</a></li>
         <li><a href="/admin/results" class="{{Request::is('admin/results') ? 'active' : ''}}">Race Results</a></li>
+        <li><a href="/admin/users" class="{{Request::is('admin/users') ? 'active' : ''}}">Racers</a></li>
         <li><a href="#">Point Standings</a>
         <li><a href="#">Photo Galleries</a></li>
     </ul>

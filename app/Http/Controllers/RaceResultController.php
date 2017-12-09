@@ -53,7 +53,8 @@ class RaceResultController extends Controller
     {
         $this->validate(request(), [
             'name' => 'required',
-            'date'  => 'required'
+            'date'  => 'required',
+            'file_upload' => 'required'
         ]);
 
         // Get the uploaded file and parse it.
