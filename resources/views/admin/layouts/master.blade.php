@@ -19,6 +19,11 @@
 
 </head>
 <body>
+    @if ($flash = session('message'))
+        <div id="flash-message" class="alert alert-success" role="alert">
+            {{ $flash }}
+        </div> <!-- #/flash-message -->
+    @endif
 
     {{--<div class="wrapper">--}}
         <div class="row no-gutters">
@@ -43,12 +48,6 @@
 
             </div>
         </div>
-
-
-
-
-
-
 
     {{--</div> <!-- ./wrapper -->--}}
 

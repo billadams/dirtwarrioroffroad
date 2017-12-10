@@ -17,9 +17,6 @@ Route::post('/admin/login', 'SessionsController@store');
 Route::get('/admin/logout', 'SessionsController@destroy');
 
 Route::get('/admin', 'AdminController@index')->name('dashboard');
-//Route::middleware(['/admin'])->group(function () {
-//    Route::get('/admin', 'AdminController@index')->name('dashboard');
-//});
 
 Route::get('/admin/announcements', 'AnnouncementController@index');
 Route::get('/admin/announcements/create', 'AnnouncementController@create');

@@ -10,6 +10,11 @@ use App\RaceResult;
 
 class RaceResultController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except('view', 'show');
+    }
+
     /**
      * Display an admin listing of the resource.
      * @return \Illuminate\Http\Response
@@ -83,6 +88,8 @@ class RaceResultController extends Controller
         ResultDatabaseHelper::store_racers($racers);
         ResultDatabaseHelper::store_classes($race_classes);
         ResultDatabaseHelper::store_race_position_results($result_positions);
+
+        session()->flash('message', 'New race result successfully published.');
 
         return redirect('admin/results');
     }

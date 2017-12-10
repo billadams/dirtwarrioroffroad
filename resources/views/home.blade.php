@@ -39,9 +39,9 @@
             </svg>
 
             <h2>Results</h2>
-            <p>Position 1 : Racer Name</p>
-            <p>Position 2 : Racer Name</p>
-            <p>Position 3 : Racer Name</p>
+            <p>{{ str_ordinal(1) }} : Racer Name</p>
+            <p>{{ str_ordinal(2) }} : Racer Name</p>
+            <p>{{ str_ordinal(3) }} : Racer Name</p>
             <p><a class="btn btn-secondary" href="results" role="button" title="All Results">All Results &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">

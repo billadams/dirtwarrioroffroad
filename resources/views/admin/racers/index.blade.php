@@ -2,6 +2,12 @@
 
 @section('content')
 
+    <div class="controls">
+
+
+
+    </div> <!-- /.controls -->
+
     <div class="row">
         <div class="add-new">
             <a href="/admin/classes/create" class="btn btn-primary" title="Add new announcement">Add New</a>

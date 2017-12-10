@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class FileUploadProvider extends ServiceProvider
+class FileUploadServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

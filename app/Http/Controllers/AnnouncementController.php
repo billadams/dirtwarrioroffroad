@@ -7,6 +7,11 @@ use App\Announcement;
 
 class AnnouncementController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except('view');
+    }
+
     /**
      * Display an admin listing of the resource.
      * @return \Illuminate\Http\Response
@@ -48,15 +53,6 @@ class AnnouncementController extends Controller
             'title' => 'required',
             'body'  => 'required'
         ]);
-//        dd(request()->all());
-        // Create new announcement using the request data
-//        $announcement = new Announcement;
-
-//        $announcement->title = request('title');
-//        $announcement->body = request('body');
-
-        // Save it to the database
-//        $announcement->save();
 
         Announcement::create([
             'title' => request('title'),
@@ -76,9 +72,6 @@ class AnnouncementController extends Controller
      */
     public function show(Announcement $announcement)
     {
-        //        $announcement = Announcement::find($id);
-//        return $announcement;
-
         return view('announcements.show', compact('announcement'));
     }
 
@@ -91,8 +84,6 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
-//        $announcement = Announcement::find($id);
-
         return view('admin.announcements.edit', compact('announcement'));
     }
 

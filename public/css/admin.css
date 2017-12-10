@@ -22,9 +22,20 @@ a.btn {
     cursor: default;
 }
 
-.alert {
-    padding-left: 0;
-    padding-right: 0;
+/*.alert {*/
+    /*padding-left: 0;*/
+    /*padding-right: 0;*/
+/*}*/
+#flash-message {
+    animation: flash-message 10s forwards;
+    bottom: 80px;
+    position: absolute;
+    right: 20px;
+    z-index: 10;
+}
+@keyframes flash-message {
+    0%   {opacity: 1;}
+    100% {opacity: 0; display:none;}
 }
 
 /*--------------------------HEADER STYLES--------------------------*/
@@ -87,15 +98,17 @@ ul ul a {
 }
 
 /*--------------------------ADMIN LOGIN STYLES--------------------------*/
-body {
-    /*padding-top: 40px;*/
+#login {
+    padding-top: 40px;
+    margin: 0 auto;
+    max-width: 330px;
     /*padding-bottom: 40px;*/
     /*background-color: #eee;*/
 }
 .form-signin {
-    max-width: 330px;
+    /*max-width: 330px;*/
     padding: 15px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -123,4 +136,9 @@ body {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+/*--------------------------CONTENT STYLES--------------------------*/
+.controls {
+    margin-bottom: 2rem;
 }

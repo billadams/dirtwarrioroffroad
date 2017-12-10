@@ -34,9 +34,9 @@
                             @foreach ($results as $result)
                                 @if ($result->class_id == $class->class_id)
                                     <tr>
-                                        <td>{{ $result->overall }}</td>
-                                        <td>{{ $result->moto_1 }}</td>
-                                        <td>{{ $result->moto_2 }}</td>
+                                        <td>{{ str_ordinal($result->overall) }}</td>
+                                        <td>{{ str_ordinal($result->moto_1) }}</td>
+                                        <td>{{ str_ordinal($result->moto_2) }}</td>
                                         <td>{{ $result->first_name }}</td>
                                         <td>{{ $result->last_name }}</td>
                                     </tr>

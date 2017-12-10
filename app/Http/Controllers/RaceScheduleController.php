@@ -7,6 +7,11 @@ use App\RaceSchedule;
 
 class RaceScheduleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except('view');
+    }
+
     /**
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
@@ -60,6 +65,8 @@ class RaceScheduleController extends Controller
             'description' => request('description'),
             'directions' => request('directions')
         ]);
+
+        session()->flash('message', 'New race schedule successfully published.');
 
         return redirect('admin/schedule');
     }

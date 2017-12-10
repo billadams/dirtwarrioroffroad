@@ -7,6 +7,11 @@ use App\RaceResultPosition;
 
 class RaceResultPositionController
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     /**
      * Display an admin listing of the resource.
      *

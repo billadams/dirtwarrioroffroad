@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class SessionsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
     public function create()
     {
         return view('admin/sessions/create');
@@ -18,13 +14,14 @@ class SessionsController extends Controller
 
     public function store()
     {
-        dd(request());
         if (! auth()->attempt(request(['email', 'password'])))
         {
             return back()->withErrors([
                 'message' => 'Please check your credentials and try again.'
             ]);
         }
+
+        session()->flash('message', 'Login success. Logged in as ' . request('email'));
 
         return redirect('/admin');
     }

@@ -177,8 +177,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\FileUploadProvider::class,
-        App\Providers\ResultDatabaseProvider::class,
+        App\Providers\FileUploadServiceProvider::class,
+        App\Providers\ResultDatabaseServiceProvider::class,
+        App\Providers\NumberHelperServiceProvider::class,
 
     ],
 
