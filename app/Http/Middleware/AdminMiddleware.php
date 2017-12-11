@@ -16,10 +16,8 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-//        dd(Auth::user()->user_permissions);
         if (Auth::check() && Auth::user()->user_permissions == 1)
         {
-//            dd($next);
             return $next($request);
         }
 

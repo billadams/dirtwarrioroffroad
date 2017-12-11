@@ -18,7 +18,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::all();
+        $announcements = Announcement::orderBy('created_at', 'date')->get();
 
         return view('admin.announcements.index', compact('announcements'));
     }
@@ -29,7 +29,7 @@ class AnnouncementController extends Controller
      */
     public function view()
     {
-        $announcements = Announcement::all();
+        $announcements = Announcement::orderBy('created_at', 'desc')->get();
 
         return view('announcements.index', compact('announcements'));
     }

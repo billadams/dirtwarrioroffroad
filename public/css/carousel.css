@@ -48,7 +48,9 @@ body {
 .marketing h2 {
     font-weight: 400;
 }
-
+.marketing li {
+    margin-bottom: .5rem;
+}
 .marketing .col-lg-4 p {
     margin-right: .75rem;
     margin-left: .75rem;

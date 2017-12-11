@@ -61,16 +61,14 @@ Route::patch('/admin/racers/{id}', 'RacerController@update');
 Route::delete('admin/racers/{id}', 'RacerController@destroy');
 
 // Public viewable routes
-Route::get('/', function () {
-    return view('home');
-});
-//Route::get('/schedule', function () {
-//    return view('schedule.index');
+Route::get('/', 'HomeController@index');
+
+//Route::get('/', function () {
+//    return view('home');
 //});
+
 Route::get('/schedule', 'RaceScheduleController@view');
-//Route::get('/results', function () {
-//    return view('results.index');
-//});
+
 Route::get('/results', 'RaceResultController@view');
 Route::get('/point-standings', function () {
     return view('point_standings.index');
@@ -79,13 +77,6 @@ Route::get('/point-standings', function () {
 Route::get('/announcements', 'AnnouncementController@view');
 Route::get('/announcements/{announcement}', 'AnnouncementController@show');
 
-
 // Eloquent model => Post - usually a noun (doesn't have to be)
 // controller => PostsController
 // migration => create_posts_table
-
-//Route::get('/', function () {
-//
-//});
-
-//Route::get('announcements', 'AnnouncementController');

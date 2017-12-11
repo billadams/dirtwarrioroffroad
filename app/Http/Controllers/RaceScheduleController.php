@@ -29,7 +29,7 @@ class RaceScheduleController extends Controller
      */
     public function view()
     {
-        $race_events = RaceSchedule::orderBy('date', 'desc')->where('date', '>=', now())->get();
+        $race_events = RaceSchedule::orderBy('date', 'asc')->where('date', '>=', now())->get();
 
 //        dd($race_events);
         return view('schedule.index', compact('race_events'));

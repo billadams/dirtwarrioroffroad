@@ -35,7 +35,7 @@
 
     </div> <!-- /.controls -->
 
-    @if (count(schedule) == 0)
+    @if (count($schedule) == 0)
         <p>There are no events to display.</p>
     @else
         <div class="row">
@@ -70,7 +70,7 @@
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
-                                    <button type="submit" class="bbtn btn-outline-danger btn-sm"
+                                    <button type="submit" class="btn btn-outline-danger btn-sm"
                                             title="Delete {{ $event->title }}">Delete
                                     </button>
 
