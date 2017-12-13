@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App;
+use App\Helpers\Numbers\OrdinalStringHelper;
 use Illuminate\Support\ServiceProvider;
 
 class NumberHelperServiceProvider extends ServiceProvider
@@ -23,6 +25,12 @@ class NumberHelperServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        require_once app_path() . '/Helpers/Numbers/OrdinalStringHelper.php';
+        App::bind('OrdinalStringHelper', function(){
+
+            // Create and return object of class.
+                return new OrdinalStringHelper;
+        });
+
+//        require_once app_path() . '/Helpers/Numbers/OrdinalStringHelper.php';
     }
 }

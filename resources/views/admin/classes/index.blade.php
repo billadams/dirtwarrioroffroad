@@ -10,13 +10,13 @@
             </div> <!-- ./add-new -->
         </div> <!-- ./row -->
 
-        <div class="row">
+        <div class="row info">
             <div class="col-md-6">
                 <div><a href="#" title="All announcements">All</a> ({{ count($classes) }}) | <a href="#" title="Published announcements">Published</a> (130) | <a href="#" title="Draft announcements">Draft</a> (1)</div>
             </div> <!-- ./col-md-6 -->
         </div> <!-- ./row -->
 
-        <div class="row">
+        <div class="row bulk-actions">
             <div class="col-md-2">
                 <select title="Bulk actions">
                     <option>Bulk Actions</option>

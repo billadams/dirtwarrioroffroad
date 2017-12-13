@@ -21,7 +21,7 @@ class AnnouncementController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  AnnouncementController $announcement
+     * @param  Announcement $announcement
      *
      * @return \Illuminate\Http\Response
      */

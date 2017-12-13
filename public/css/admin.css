@@ -13,9 +13,8 @@ p {
 }
 
 nav a:hover, nav .active {
-    background-color: #327a05;
-    /*color: #404040;*/
-    color: #64fa0a
+    background-color: #080808;
+    color: #eeeeee;
 }
 
 a.btn {
@@ -44,7 +43,7 @@ a.btn {
 /*--------------------------HEADER STYLES--------------------------*/
 .header-container {
     background-color: #2d3573;
-    margin-bottom: 3rem;
+    /*margin-bottom: 3rem;*/
 }
 header {
     background-color: #323b80;
@@ -66,9 +65,9 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 #sidebar {
-    background: #64fa0a;
-    /*height: 100vh;*/
-    /*padding-top: 1.5rem;*/
+    background: #222222;
+    /*margin-top: -3rem;*/
+    min-height: 100vh;
     transition: all 0.3s;
 }
 #sidebar .sidebar-header {
@@ -90,17 +89,17 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #64fa0a;
-    background-color: #327105;
+    color: #eeeeee;
+    background-color: #080808;
 }
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-}
+/*#sidebar ul li.active > a, a[aria-expanded="true"] {*/
+    /*color: #fff;*/
+    /*background: #080808;*/
+/*}*/
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #080808;
 }
 
 /*--------------------------FOOTER STYLES--------------------------*/
@@ -156,8 +155,8 @@ footer {
 
 /*--------------------------CONTENT STYLES--------------------------*/
 .content {
-    padding-top: 1.5rem;
+    margin-top: 1.5rem;
 }
-.controls {
-    margin-bottom: 2rem;
+.controls .add-new, .info, .bulk-actions {
+    margin-bottom: 1rem;
 }

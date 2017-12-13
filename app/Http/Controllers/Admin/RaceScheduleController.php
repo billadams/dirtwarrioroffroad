@@ -41,7 +41,11 @@ class RaceScheduleController extends Controller
     {
         $this->validate(request(), [
             'title' => 'required',
-            'date'  => 'required'
+            'date'  => 'required',
+            'gate_open_time' => 'required',
+            'practice_start_time' => 'required',
+            'rider_meeting_time' => 'required',
+            'race_start_time' => 'required'
         ]);
 
         RaceSchedule::create([
@@ -127,6 +131,9 @@ class RaceScheduleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = RaceSchedule::find($id);
+        $event->delete();
+
+        return redirect('admin/schedule');
     }
 }

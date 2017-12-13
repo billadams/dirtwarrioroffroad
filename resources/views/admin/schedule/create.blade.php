@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h2>Create Race Event</h2>
+    <h2>Add  Race Event</h2>
 
     <hr>
 
@@ -22,14 +22,14 @@
 
         <div class="form-group row">
             <label for="date" class="col-2 col-form-label">Date</label>
-            <div class="col-10">
+            <div class="col-md-3">
                 <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="date" name="date">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="gate_open_time" class="col-2 col-form-label">Gate Open Time</label>
-            <div class="col-10">
+            <div class="col-md-3">
                 <input class="form-control" type="time" value="12:00:00" id="gate_open_time"
                        name="gate_open_time">
             </div>
@@ -37,21 +37,21 @@
 
         <div class="form-group row">
             <label for="practice_start_time" class="col-2 col-form-label">Practice Start Time</label>
-            <div class="col-10">
+            <div class="col-md-3">
                 <input class="form-control" type="time" value="12:00:00" id="practice_start_time" name="practice_start_time">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="rider_meeting_time" class="col-2 col-form-label">Riders Meeting Time</label>
-            <div class="col-10">
+            <div class="col-md-3">
                 <input class="form-control" type="time" value="12:00:00" id="rider_meeting_time" name="rider_meeting_time">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="race_start_time" class="col-2 col-form-label">Race Start Time</label>
-            <div class="col-10">
+            <div class="col-md-3">
                 <input class="form-control" type="time" value="12:00:00" id="race_start_time"
                        name="race_start_time">
             </div>

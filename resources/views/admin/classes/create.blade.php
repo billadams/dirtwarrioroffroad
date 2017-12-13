@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h2>Create Race Class</h2>
+    <h2>Add New Race Class</h2>
 
     <hr>
 

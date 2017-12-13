@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h2>Add Race Result</h2>
+    <h2>Add New Race Result</h2>
 
     <hr>
 
@@ -22,7 +22,7 @@
 
         <div class="form-group row">
             <label for="date" class="col-2 col-form-label">Date</label>
-            <div class="col-10">
+            <div class="col-md-3">
                 <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="date" name="date">
             </div>
         </div>

@@ -42,7 +42,7 @@
 
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-md-9 content">
 
                     @yield('content')
 
@@ -73,7 +73,7 @@
             // var sideBar = $('#sidebar');
             var sideBarTop = $('#sidebar').offset().top;
             var sideBarLeft = $('#sidebar').offset().left;
-            var sideBarWidth = $('#sidebar').width();
+            var sideBarWidth = $('#sidebar').innerWidth();
             $(window).scroll(function() {
                 var currentScroll = $(window).scrollTop();
                 if (currentScroll >= sideBarTop) {

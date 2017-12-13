@@ -1,11 +1,20 @@
+.btn-cta {
+    background-color: #2d3573;
+    color: #eeeeee;
+}
+.btn-cta:hover {
+    background-color: #323b80;
+}
+
 /*--------------------------HEADER STYLES--------------------------*/
 header {
-    /*background-color: green;*/
+    background-color: #2d3573;
     height: 56px;
     /*line-height: 150px;*/
     /*text-align: center;*/
 }
 header h1 {
+    color: #eeeeee;
     margin: 0;
     line-height: 56px;
 }
@@ -36,10 +45,57 @@ nav a:hover, nav .active {
     margin: -2.5rem auto 4em;
     max-width: 1920px;
 }
+.marketing h4, .marketing ul {
+    margin-bottom: 1.25rem;
+}
 
 /*--------------------------EVENT RESULTS STYLES--------------------------*/
 .class-result {
     margin-bottom: 2em;
+}
+
+#past-results {
+    background-color: #323b80;
+    color: #eeeeee;
+}
+#past-results h4 {
+    background-color: #2d3573;
+    margin: 0;
+    padding: 15px;
+}
+#past-results ul {
+    /*padding: 0 15px;*/
+}
+#past-results li {
+    border-bottom: 1px solid #efefef;
+ }
+#past-results li:hover {
+    background-color: #323b80;
+}
+#past-results a {
+    color: inherit;
+    display: block;
+    padding: 15px 15px;
+}
+#past-results a:hover {
+    color: inherit;
+    opacity: .5;
+    text-decoration: none;
+}
+
+/*--------------------------ANNOUNCEMENT STYLES--------------------------*/
+.announcement {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+}
+.announcement:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    /*padding-bottom: 0;*/
+}
+.announcement .date {
+    margin-bottom: 1rem;
 }
 
 

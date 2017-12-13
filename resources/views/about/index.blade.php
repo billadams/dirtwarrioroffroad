@@ -7,8 +7,10 @@
 @section ('content')
 
     <div class="container">
-        <h2>About</h2>
         <div class="col-md-9">
+            <h2>About</h2>
+            <hr>
+
             <p>Maecenas mollis orci non ornare rutrum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis massa nulla, blandit nec cursus quis, finibus in quam. Suspendisse a metus nec dolor vestibulum porttitor. Phasellus sit amet justo ante. Aenean pharetra tellus et nisl viverra lacinia. Nunc vel congue odio, vitae posuere magna. Aenean tincidunt id quam in lacinia. Quisque euismod interdum massa. Sed cursus, neque quis pulvinar faucibus, turpis metus maximus velit, eu viverra dolor lorem et erat.</p>
 
             <p>Curabitur in lectus vel arcu consequat pulvinar. Sed et ipsum dictum, condimentum ex at, tincidunt diam. Praesent a elit id est dapibus rutrum vitae quis diam. In sed nibh nec lectus commodo suscipit nec eget ante. Donec sed ante ac turpis tincidunt posuere sit amet in orci. Donec dictum elit magna, eget mollis orci facilisis quis. Sed vel mi eros. Vivamus tellus nibh, porta et dolor ut, pharetra accumsan lacus. Ut sagittis erat sed lorem consequat sagittis. Praesent tincidunt cursus lobortis. Praesent vel sem non risus aliquet hendrerit. Maecenas imperdiet nunc lectus, ut viverra elit elementum quis. Donec ut aliquet sapien. Maecenas lectus odio, scelerisque id urna eget, ornare interdum nisl. Mauris vitae pulvinar nisi. Nam convallis placerat nisi, ut porta arcu gravida vel.</p>

@@ -1,6 +1,9 @@
 <?php
 
-if (! function_exists('str_ordinal')) {
+namespace App\Helpers\Numbers;
+
+class OrdinalStringHelper
+{
     /**
      * Append an ordinal indicator to a numeric value.
      *

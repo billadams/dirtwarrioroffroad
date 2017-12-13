@@ -231,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'ResultsUpload' => App\Helpers\FileUploads\ResultsUploadHelper::class,
         'ResultDatabase' => App\Helpers\Database\ResultDatabaseHelper::class,
+        'OrdinalStringHelper' => App\Facades\OrdinalStringHelper::class,
 
     ],
 
