@@ -45,7 +45,7 @@
                     <tr>
                         <th></th>
                         <th>Title</th>
-                        <th>Date</th>
+                        <th>Published</th>
                         <th></th>
                     </tr>
                     </thead>

@@ -21,8 +21,10 @@ class HomeController extends Controller
         // Gather race results.
         $latest_event = RaceResult::orderBy('date', 'desc')->first();
         // TODO Loads these with ajax and cycle each class result.
-        $class = RaceClass::find(81);
-        $results = ResultDatabaseHelper::get_class_results($latest_event->id, 84)->take(3);
+        if ($latest_event) {
+            $class = RaceClass::find(84);
+            $results = ResultDatabaseHelper::get_class_results($latest_event->id, 84)->take(3);
+        }
 
         // Gather announcements
         $announcements = Announcement::orderby('created_at', 'desc')->get()->take(3);

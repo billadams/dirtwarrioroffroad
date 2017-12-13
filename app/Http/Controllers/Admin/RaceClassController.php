@@ -1,9 +1,10 @@
 <?php
 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\RaceClass;
 
 class RaceClassController extends Controller
@@ -19,7 +20,7 @@ class RaceClassController extends Controller
      */
     public function index()
     {
-        $classes = RaceClass::all()->sortByDesc('name');
+        $classes = RaceClass::orderBy('name', 'asc')->get();
 
         return view('admin.classes.index', compact('classes'));
     }
@@ -46,6 +47,8 @@ class RaceClassController extends Controller
         RaceClass::create([
             'name' => request('name')
         ]);
+
+        session()->flash('message', 'New class successfully published.');
 
         return redirect('admin/classes');
     }
@@ -94,6 +97,8 @@ class RaceClassController extends Controller
             ->update([
                 'name' => request('name')
             ]);
+
+        session()->flash('message', 'Class successfully updated.');
 
         return redirect('admin/classes');
     }

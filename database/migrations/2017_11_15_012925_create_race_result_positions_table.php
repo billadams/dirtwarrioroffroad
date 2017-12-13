@@ -19,11 +19,15 @@ class CreateRaceResultPositionsTable extends Migration
             $table->integer('race_results_id')->unsigned();
             $table->integer('race_class_id')->unsigned();
             $table->foreign('racer_id', 'fk_race_result_positions_racer_id_user_racer_id')
-                ->references('racer_id')->on('users');
+                ->references('racer_id')
+                ->on('users');
             $table->foreign('race_results_id', 'fk_race_result_positions_race_results_id_race_results_id')
-                ->references('id')->on('race_results');
+                ->references('id')
+                ->on('race_results')
+                ->onDelete("cascade");
             $table->foreign('race_class_id', 'fk_race_result_positions_race_class_id_race_classes_class_id')
-                ->references('class_id')->on('race_classes');
+                ->references('class_id')
+                ->on('race_classes');
             $table->smallInteger('moto_1')->unsigned();
             $table->smallInteger('moto_2')->unsigned();
             $table->smallInteger('overall')->unsigned();

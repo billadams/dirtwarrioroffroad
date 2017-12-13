@@ -1,41 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Helpers\Database\ResultDatabaseHelper;
+use App\Helpers\FileUploads\ResultsUploadHelper;
+use App\RaceClass;
+use Illuminate\Http\Request;
 use App\RaceResult;
-use App\RaceResultPosition;
 
-class RaceResultPositionController
+class RaceResultController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('admin')->except('view', 'show');
     }
 
     /**
      * Display an admin listing of the resource.
-     *
-     * @param  RaceResult $result
-     *
      * @return \Illuminate\Http\Response
      */
-    public function index(RaceResult $result)
+    public function index()
     {
-//        dd(request()->all());
-        $positions = RaceResultPosition::all();
+        $results = RaceResult::orderBy('date', 'desc')->get();
 
-        return view('admin.resultpositions.index', compact('result', 'positions'));
-    }
-
-    /**
-     * Display a public listing of the resource.
-     * @return \Illuminate\Http\Response
-     */
-    public function view()
-    {
-        $announcements = AnnouncementController::all();
-
-        return view('announcements.index', compact('announcements'));
+        return view('admin.results.index', compact('results'));
     }
 
     /**
@@ -51,17 +40,42 @@ class RaceResultPositionController
      * Store a newly created resource in storage.
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
         $this->validate(request(), [
             'name' => 'required',
-            'date' => 'required'
+            'date'  => 'required',
+            'file_upload' => 'required'
         ]);
 
+        // Get the uploaded file and parse it.
+        $file = $request->file('file_upload');
+        $results = ResultsUploadHelper::parse_csv_file($file);
+
+        // Get the Racers.
+        $racers = ResultDatabaseHelper::get_racers($results);
+
+        // Get the Race Classes.
+        $race_classes = ResultDatabaseHelper::get_race_classes($results);
+
+        // Get the Result Positions.
+        $result_positions = ResultDatabaseHelper::get_race_position_results($results);
+
+        // Store the results in the related tables.
+//        $race_result = new RaceResult();
+//        $race_result->store_results($results);
+
+        // Store the actual race result event.
         RaceResult::create([
             'name' => request('name'),
             'date' => request('date')
         ]);
+
+        ResultDatabaseHelper::store_racers($racers);
+        ResultDatabaseHelper::store_classes($race_classes);
+        ResultDatabaseHelper::store_race_position_results($result_positions);
+
+        session()->flash('message', 'New race result successfully published.');
 
         return redirect('admin/results');
     }
@@ -69,13 +83,13 @@ class RaceResultPositionController
     /**
      * Display the specified resource.
      *
-     * @param  RaceResult $result
+     * @param  RaceResult $event
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(RaceResult $result)
+    public function show(RaceResult $event)
     {
-        return view('results.show', compact('result'));
+
     }
 
     /**
@@ -101,7 +115,7 @@ class RaceResultPositionController
     {
         $this->validate(request(), [
             'name' => 'required',
-            'date' => 'required'
+            'date'  => 'required'
         ]);
 
         $result = RaceResult::find($id);
@@ -109,8 +123,10 @@ class RaceResultPositionController
         RaceResult::where('id', $id)
             ->update([
                 'name' => request('name'),
-                'date' => request('date')
+                'date'  => request('date')
             ]);
+
+        session()->flash('message', 'Race result successfully updated.');
 
         return redirect('admin/results');
     }

@@ -1,3 +1,3 @@
-<footer class="footer">
-    <p>&copy; {{ date('Y') }} Dirt Warrior Offroad</p>
+<footer class="container">
+    <div>&copy; {{ date('Y') }} Dirt Warrior Offroad</div>
 </footer>

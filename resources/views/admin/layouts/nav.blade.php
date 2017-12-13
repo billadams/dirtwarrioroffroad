@@ -1,8 +1,8 @@
 <nav id="sidebar">
     <!-- Sidebar Header -->
-    <div class="sidebar-header">
-        <h1>Dirt Warrior Offroad</h1>
-    </div>
+    {{--<div class="sidebar-header">--}}
+        {{--<h1>Dirt Warrior Offroad</h1>--}}
+    {{--</div>--}}
 
     <!-- Sidebar Links -->
     <ul class="list-unstyled components">

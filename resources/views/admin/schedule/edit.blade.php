@@ -6,6 +6,10 @@
 
     <hr>
 
+    <div class="offset-md-2">
+        @include ('/admin.layouts.partials.errors')
+    </div>
+
     <form method="POST" action="/admin/schedule/{{ $event->id }}">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}

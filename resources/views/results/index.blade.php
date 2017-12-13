@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-8 class-result">
                 @if (!isset($most_recent_event))
-                    <p>There are no race results to display</p>
+                    <p>There are no race results to display.</p>
                 @else
                     <h3 class="text-muted">Event: {{ $most_recent_event->name }}</h3>
                     <p class="text-muted">Date: {{ $most_recent_event->date->format('F d, Y') }}</p>
@@ -53,12 +53,12 @@
                     <p>There is no past history to display.</p>
                 @else
                     <h4>Past Results</h4>
-                    <p>Current Year</p>
+                    <hr>
+                    {{--<p>Current Year</p>--}}
                     <ul class="list-unstyled">
-                        <li><a href="#" title="Homer, 07/18/17">Homer, 07/18/17</a></li>
-                        <li><a href="#" title="Abbot, 07/25/17">Abbot, 07/25/17</a></li>
-                        <li><a href="#" title="Yankton, 07/31/17">Yankton, 07/31/17</a></li>
-                        <li><a href="#" title="Friend, 08/03/17">Friend, 08/03/17</a></li>
+                        @foreach ($past_results as $past_result)
+                            <li><a href="/results/{{ $past_result->id }}" title="{{ $past_result->name }}, {{ $past_result->date->format('m/d/Y') }}">{{ $past_result->name }}, {{ $past_result->date->format('m/d/Y') }}</a></li>
+                        @endforeach
                     </ul>
                 @endif
 

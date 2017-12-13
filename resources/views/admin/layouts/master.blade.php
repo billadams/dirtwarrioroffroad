@@ -19,37 +19,43 @@
 
 </head>
 <body>
-    @if ($flash = session('message'))
-        <div id="flash-message" class="alert alert-success" role="alert">
-            {{ $flash }}
-        </div> <!-- #/flash-message -->
-    @endif
 
-    {{--<div class="wrapper">--}}
-        <div class="row no-gutters">
+        @if ($flash = session('message'))
+            <div id="flash-message" class="alert alert-success" role="alert">
+                {{ $flash }}
+            </div> <!-- #/flash-message -->
+        @endif
 
-            <div class="col-md-3">
+        <div class="container-fluid header-container">
 
-                @include('admin.layouts.nav')
+            @include('admin.layouts.header')
 
-            </div>
+        </div>
 
-            <div class="col-md-9">
+        <div class="container">
 
-                @include('admin.layouts.header')
+            <div class="row">
 
-                <div class="container">
+                <div class="col-md-3">
+
+                    @include('admin.layouts.nav')
+
+                </div>
+
+                <div class="col-md-9">
 
                     @yield('content')
 
-                </div> <!-- ./container -->
-
-                @include('admin.layouts.footer')
-
+                </div>
             </div>
+
         </div>
 
-    {{--</div> <!-- ./wrapper -->--}}
+        <div class="container-fluid footer-container footer">
+
+            @include('admin.layouts.footer')
+
+        </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -62,6 +68,29 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
             integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
             crossorigin="anonymous"></script>
+
+        <script>
+            // var sideBar = $('#sidebar');
+            var sideBarTop = $('#sidebar').offset().top;
+            var sideBarLeft = $('#sidebar').offset().left;
+            var sideBarWidth = $('#sidebar').width();
+            $(window).scroll(function() {
+                var currentScroll = $(window).scrollTop();
+                if (currentScroll >= sideBarTop) {
+                    $('#sidebar').css({
+                        position: 'fixed',
+                        top: '0',
+                        left: sideBarLeft,
+                        width: sideBarWidth
+                    });
+                } else {
+                    $('#sidebar').css({
+                        position: 'static',
+                        width: sideBarWidth
+                    });
+                }
+            });
+        </script>
 
     @yield('footer')
 
