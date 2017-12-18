@@ -27,13 +27,13 @@
             </div>
         </div>
 
-        <div class="form-group row">
-            <div class="offset-md-2 col-md-2">
-                <label class="btn btn-info btn-file">
-                    Select CSV File <input type="file" name="file_upload" style="display: none;">
-                </label>
-            </div>
-        </div>
+        {{--<div class="form-group row">--}}
+            {{--<div class="offset-md-2 col-md-2">--}}
+                {{--<label class="btn btn-info btn-file">--}}
+                    {{--Select CSV File <input type="file" name="file_upload" style="display: none;">--}}
+                {{--</label>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
         <div class="form-group row">
             <div class="offset-md-2 col-md-3">

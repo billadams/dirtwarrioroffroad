@@ -65,7 +65,7 @@
                                 @endforeach
                             </ul>
                         </div> <!-- /#past-results -->
-                @endif
+                    @endif
 
             </aside> <!-- ./col-md-3 -->
 

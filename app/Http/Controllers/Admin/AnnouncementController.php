@@ -119,6 +119,8 @@ class AnnouncementController extends Controller
         $announcement = Announcement::find($id);
         $announcement->delete();
 
+        session()->flash('message', 'Announcement successfully removed.');
+
         return redirect('admin/announcements');
     }
 }

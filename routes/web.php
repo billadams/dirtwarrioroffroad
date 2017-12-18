@@ -46,12 +46,13 @@ Route::post('/admin/results', 'Admin\RaceResultController@store');
 Route::patch('/admin/results/{id}', 'Admin\RaceResultController@update');
 Route::delete('admin/results/{id}', 'Admin\RaceResultController@destroy');
 
-Route::get('/admin/resultpositions/{result}', 'Admin\RaceResultPositionController@index');
-Route::get('/admin/resultpositions/create', 'Admin\RaceResultPositionController@create');
-Route::get('/admin/resultpositions/{result}/edit', 'Admin\RaceResultPositionController@edit');
-Route::post('/admin/resultpositions', 'Admin\RaceResultPositionController@store');
-Route::patch('/admin/resultpositions/{id}', 'Admin\RaceResultPositionController@update');
-Route::delete('admin/resultpositions/{id}', 'Admin\RaceResultPositions@destroy');
+//Route::get('/admin/result_places/', 'Admin\ResultPlacesController@index');
+Route::get('/admin/results/{id}/result_places/create', 'Admin\ResultPlacesController@create');
+//Route::get('/admin/results/{result}/result_places/{result}/edit', 'Admin\ResultPlacesController@edit');
+//Route::get('/admin/results/{result}/result_places/', 'Admin\ResultPlacesController@show');
+Route::post('/admin/result_places', 'Admin\ResultPlacesController@store');
+//Route::patch('/admin/result_places/{id}', 'Admin\ResultPlacesController@update');
+Route::delete('admin/result_places/{id}', 'Admin\ResultPlacesController@destroy');
 
 Route::get('/admin/racers/{result}', 'RacerController@index');
 Route::get('/admin/racers/create', 'RacerController@create');

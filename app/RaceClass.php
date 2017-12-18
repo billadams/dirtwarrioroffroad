@@ -11,6 +11,6 @@ class RaceClass extends Model
 
     public function positions()
     {
-        return $this->hasMany(RaceResultPosition::class, 'race_class_id', 'class_id');
+        return $this->hasMany(ResultPlaces::class, 'race_class_id', 'class_id');
     }
 }

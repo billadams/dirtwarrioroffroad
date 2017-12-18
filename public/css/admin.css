@@ -20,6 +20,10 @@ nav a:hover, nav .active {
 a.btn {
     cursor: default;
 }
+.disable-href {
+    opacity: .5;
+    pointer-events: none;
+}
 
 /*.alert {*/
     /*padding-left: 0;*/
@@ -37,7 +41,7 @@ a.btn {
 }
 @keyframes flash-message {
     0%   {opacity: 1;}
-    100% {opacity: 0; display:none;}
+    100% {opacity: 0;}
 }
 
 /*--------------------------HEADER STYLES--------------------------*/

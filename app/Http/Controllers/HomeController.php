@@ -19,7 +19,7 @@ class HomeController extends Controller
     public function index()
     {
         // Gather race results.
-        $latest_event = RaceResult::orderBy('date', 'desc')->first();
+        $latest_event = RaceResult::where('has_results', '=', '1')->orderBy('date', 'desc')->first();
         // TODO Loads these with ajax and cycle each class result.
         if ($latest_event) {
             $class = RaceClass::find(84);

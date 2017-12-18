@@ -16,5 +16,6 @@
         <li><a href="/admin/racers" class="{{Request::is('admin/racers') ? 'active' : ''}}">Racers</a></li>
         <li><a href="#">Point Standings</a>
         <li><a href="#">Photo Galleries</a></li>
+        <li><a href="#">Admin Users</a></li>
     </ul>
 </nav>

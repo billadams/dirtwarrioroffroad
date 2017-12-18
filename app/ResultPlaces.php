@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RaceResultPosition extends Model
+class ResultPlaces extends Model
 {
     protected $fillable = ['racer_id', 'race_results_id', 'race_class_id',
         'moto_1', 'moto_2', 'overall'];

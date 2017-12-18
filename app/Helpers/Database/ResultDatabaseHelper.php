@@ -3,7 +3,7 @@
 namespace App\Helpers\Database;
 
 use App\RaceResult;
-use App\RaceResultPosition;
+use App\ResultPlaces;
 use App\User;
 use App\RaceClass;
 use Illuminate\Support\Facades\DB;
@@ -12,8 +12,41 @@ use Illuminate\Support\Facades\DB;
 class ResultDatabaseHelper
 {
     /**
+     * Store the results for a particular race.
+     *
+     * @param $racers
+     * @param $race_classes
+     * @param $result_places
+     *
+     * @return void
+     */
+    public static function add_results($racers, $race_classes, $result_places)
+    {
+        self::store_racers($racers);
+        self::store_classes($race_classes);
+        self::store_race_result_places($result_places);
+    }
+
+    /**
+     * @param $id
+     * @param $value
+     *
+     * @return void
+     */
+    public static function set_has_results($id, $value)
+    {
+        $result = RaceResult::find($id);
+
+        $result->has_results = $value;
+
+        $result->save();
+    }
+
+    /**
      * Gets race class information from the parsed CSV file.
+     *
      * @param $results
+     *
      * @return array
      */
     public static function get_race_classes($results)
@@ -34,7 +67,9 @@ class ResultDatabaseHelper
 
     /**
      * Gets racer information from the parsed CSV file.
+     *
      * @param $results
+     *
      * @return array
      */
     public static function get_racers($results)
@@ -56,23 +91,24 @@ class ResultDatabaseHelper
     /**
      * Gets the position results from the parsed CSV file,
      * as well as related column information to parents.
-     * @param $results
+     *
+     * @param $result_places
+     * @param $result_id
+     *
      * @return array
      */
-    public static function get_race_position_results($results)
+    public static function get_result_places($result_places, $result_id)
     {
-        $result_positions = array();
         $row = array();
 
-        foreach ($results as $result)
+        foreach ($result_places as $result_place)
         {
-            $row[ 'racer_id' ] = $result[ 10 ];
-            $nextRaceResultsTableID = DB::table('race_results')->max('id') + 1;
-            $row[ 'race_results_id' ] = $nextRaceResultsTableID;
-            $row[ 'race_class_id' ] = $result[ 7 ];
-            $row[ 'moto_1' ] = $result[ 5 ];
-            $row[ 'moto_2' ] = $result[ 6 ];
-            $row[ 'overall' ] = $result[ 3 ];
+            $row[ 'racer_id' ] = $result_place[ 10 ];
+            $row[ 'race_results_id' ] = $result_id;
+            $row[ 'race_class_id' ] = $result_place[ 7 ];
+            $row[ 'moto_1' ] = $result_place[ 5 ];
+            $row[ 'moto_2' ] = $result_place[ 6 ];
+            $row[ 'overall' ] = $result_place[ 3 ];
 
             $result_positions[] = $row;
         }
@@ -84,7 +120,10 @@ class ResultDatabaseHelper
      * Stores racers in the User table.
      * Checks to see if a record exists, if the record exists,
      * the row from the CSV file is skipped.
+     *
      * @param $racers
+     *
+     * @return void
      */
     public static function store_racers($racers)
     {
@@ -107,7 +146,10 @@ class ResultDatabaseHelper
      * Stores race classes in the RaceClass table.
      * Checks to see if a record exists, if the record exists,
      * the row from the CSV file is skipped.
+     *
      * @param $race_classes
+     *
+     * @return void
      */
     public static function store_classes($race_classes)
     {
@@ -127,13 +169,16 @@ class ResultDatabaseHelper
 
     /**
      * Stores race positions in the RacePosition table.
-     * @param $result_positions
+     *
+     * @param $result_places
+     *
+     * @return void
      */
-    public static function store_race_position_results($result_positions)
+    public static function store_race_result_places($result_places)
     {
-        foreach ($result_positions as $row)
+        foreach ($result_places as $row)
         {
-            RaceResultPosition::create([
+            ResultPlaces::create([
                 'racer_id' => $row['racer_id'],
                 'race_results_id' => $row['race_results_id'],
                 'race_class_id' => $row['race_class_id'],
@@ -149,19 +194,20 @@ class ResultDatabaseHelper
      *
      * @param RaceResult $result_id
      * @param RaceClass $class_id
+     *
      * @return \Illuminate\Support\Collection
      */
     public static function get_class_results($result_id, $class_id)
     {
         return DB::table('race_results')
-            ->select('race_results.id', 'race_results.name as event_name', 'race_results.date as event_date', 'race_classes.name as class_name', 'race_classes.class_id', 'users.first_name', 'users.last_name', 'race_result_positions.moto_1', 'race_result_positions.moto_2', 'race_result_positions.overall')
-            ->join('race_result_positions', 'race_results_id', '=', 'race_results.id')
-            ->join('race_classes', 'race_classes.class_id', '=', 'race_result_positions.race_class_id')
-            ->join('users', 'users.racer_id', '=', 'race_result_positions.racer_id')
+            ->select('race_results.id', 'race_results.name as event_name', 'race_results.date as event_date', 'race_classes.name as class_name', 'race_classes.class_id', 'users.first_name', 'users.last_name', 'result_places.moto_1', 'result_places.moto_2', 'result_places.overall')
+            ->join('result_places', 'race_results_id', '=', 'race_results.id')
+            ->join('race_classes', 'race_classes.class_id', '=', 'result_places.race_class_id')
+            ->join('users', 'users.racer_id', '=', 'result_places.racer_id')
             ->where('race_results.id', '=', $result_id)
             ->where('race_classes.class_id', '=', $class_id)
             ->orderBy('race_classes.name')
-            ->orderBy('race_result_positions.overall')
+            ->orderBy('result_places.overall')
             ->get();
     }
 }

@@ -60,12 +60,18 @@
                             <td><a href="/admin/results/{{ $result->id }}/edit" title="Edit {{ $result->name }}">{{ $result->name }}</a></td>
                             <td>{{ $result->date->format('m/d/Y') }}</td>
                             <td>
-                                <a href="/admin/results/{{ $result->id }}/result_places/create" class="btn btn-primary btn-sm @if($result->has_results) disable-href @endif" title="Add results to {{ $result->name }}">Add Results</a>
+                                <a href="/admin/result_places/{{ $result->id }}" class="btn btn-primary btn-sm">Add Results</a>
+                                {{--<form method="GET" action="/admin/results/add/{{ $result->id }}">--}}
+                                    {{--{{ csrf_field() }}--}}
+                                    {{--<input type="hidden" name="{{ $result->id }}">--}}
+                                    {{--<button type="submit" class="btn btn-primary btn-sm" @if ($result->has_results ) disabled @endif--}}
+                                    {{--title="Add results to {{ $result->name }}">Add Results--}}
+                                    {{--</button>--}}
+                                {{--</form>--}}
                             </td>
                             <td>
-                                <form method="POST" action="/admin/result_places/{{ $result->id }}">
+                                <form method="POST" action="/admin/results/clear/{{ $result->id }}">
                                     {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
                                     <button type="submit" class="btn btn-warning btn-sm" @if (!$result->has_results) disabled @endif
                                     title="Clear results from {{ $result->name }}">Clear Results
                                     </button>
@@ -75,9 +81,11 @@
                                 <form method="POST" action="/admin/results/{{ $result->id }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
+
                                     <button type="submit" class="btn btn-outline-danger btn-sm"
                                             title="Delete {{ $result->name }}">Delete Result
                                     </button>
+
                                 </form>
                             </td>
                         </tr>

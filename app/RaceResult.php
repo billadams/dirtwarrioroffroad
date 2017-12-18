@@ -10,10 +10,11 @@ class RaceResult extends Model
 {
     protected $fillable = ['name', 'date'];
     protected $dates = ['date'];
+    protected $cases = ['has_results' => 'boolean'];
 
     public function positions()
     {
-        return $this->hasMany(RaceResultPosition::class, 'race_results_id');
+        return $this->hasMany(ResultPlaces::class, 'race_results_id');
     }
 
     public function getFormattedDate()
@@ -21,17 +22,16 @@ class RaceResult extends Model
         return Carbon::createFromFormat('m/d/Y', $this->date);
     }
 
-    // Get
     public function get_event_results($id)
     {
         return DB::table('race_results')
-            ->select('race_results.id', 'race_results.name as event_name', 'race_results.date as event_date', 'race_classes.name as class_name', 'race_classes.class_id', 'users.first_name', 'users.last_name', 'race_result_positions.moto_1', 'race_result_positions.moto_2', 'race_result_positions.overall')
-            ->join('race_result_positions', 'race_results_id', '=', 'race_results.id')
-            ->join('race_classes', 'race_classes.class_id', '=', 'race_result_positions.race_class_id')
-            ->join('users', 'users.racer_id', '=', 'race_result_positions.racer_id')
+            ->select('race_results.id', 'race_results.name as event_name', 'race_results.date as event_date', 'race_classes.name as class_name', 'race_classes.class_id', 'users.first_name', 'users.last_name', 'result_places.moto_1', 'result_places.moto_2', 'result_places.overall')
+            ->join('result_places', 'race_results_id', '=', 'race_results.id')
+            ->join('race_classes', 'race_classes.class_id', '=', 'result_places.race_class_id')
+            ->join('users', 'users.racer_id', '=', 'result_places.racer_id')
             ->where('race_results.id', '=', $id)
             ->orderBy('race_classes.name')
-            ->orderBy('race_result_positions.overall')
+            ->orderBy('result_places.overall')
             ->get();
     }
 }

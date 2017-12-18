@@ -134,6 +134,8 @@ class RaceScheduleController extends Controller
         $event = RaceSchedule::find($id);
         $event->delete();
 
+        session()->flash('message', 'Event successfully removed.');
+
         return redirect('admin/schedule');
     }
 }

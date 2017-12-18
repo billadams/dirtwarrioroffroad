@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class SessionsController extends Controller
@@ -23,6 +25,11 @@ class SessionsController extends Controller
         }
 
         session()->flash('message', 'Login success. Logged in as ' . request('email'));
+
+//        $logged_in_user = Auth::user();
+//        $first_name = $logged_in_user->first_name;
+//        dd($first_name);
+//        session('logged_in_user');
 
         return redirect('/admin');
     }

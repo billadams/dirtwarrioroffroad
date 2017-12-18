@@ -15,7 +15,7 @@ class RaceResultController extends Controller
      */
     public function index()
     {
-        $most_recent_event = RaceResult::orderBy('date', 'desc')->first();
+        $most_recent_event = RaceResult::where('has_results', '=', 1)->orderBy('date', 'desc')->first();
         $classes = RaceClass::all();
 
         $race_result = new RaceResult();
@@ -23,7 +23,7 @@ class RaceResultController extends Controller
         {
             $results = $race_result->get_event_results($most_recent_event->id);
 
-            $past_results = RaceResult::orderBy('date', 'desc')->where('id', '!=', $most_recent_event->id)->get();
+            $past_results = RaceResult::where('id', '!=', $most_recent_event->id)->where('has_results', '=', 1)->orderBy('date', 'desc')->get();
         }
 
         return view('results.index', compact('most_recent_event', 'results', 'classes', 'past_results'));
@@ -42,7 +42,7 @@ class RaceResultController extends Controller
 
         $race_result = new RaceResult();
         $results = $race_result->get_event_results($event->id);
-        $past_results = RaceResult::orderBy('date', 'desc')->where('id', '!=', $event->id)->get();
+        $past_results = RaceResult::where('id', '!=', $event->id)->where('has_results', '=', 1)->orderBy('date', 'desc')->get();
         return view('results.show', compact('results', 'classes', 'event', 'past_results'));
     }
 

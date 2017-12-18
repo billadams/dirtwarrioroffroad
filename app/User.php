@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function positions()
     {
-        return $this->hasMany(RaceResultPosition::class, 'racer_id', 'racer_id');
+        return $this->hasMany(ResultPlaces::class, 'racer_id', 'racer_id');
     }
 
     public function results()
